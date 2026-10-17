@@ -76,8 +76,8 @@ export const Navbar: React.FC<NavbarProps> = ({
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled || mobileMenuOpen
-          ? 'bg-[#F5EBDD]/95 backdrop-blur-xl border-b border-[#C99A52]/25 shadow-[0_10px_30px_-12px_rgba(73,56,43,0.1)] py-3.5'
-          : 'bg-gradient-to-b from-[#F5EBDD]/90 via-[#F5EBDD]/60 to-transparent py-5 sm:py-6'
+          ? 'bg-[#F5EBDD]/92 backdrop-blur-xl border-b border-[#C99A52]/25 shadow-[0_10px_30px_-12px_rgba(73,56,43,0.1)] py-3.5'
+          : 'bg-transparent py-5 sm:py-6'
       }`}
     >
       <div className="max-w-[1380px] mx-auto px-4 sm:px-8 lg:px-12 flex items-center justify-between gap-4">
@@ -90,7 +90,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         >
           {/* Sculptural Winged V Emblem + Official Vizora Logo Badge */}
           <div className="relative flex items-center gap-2">
-            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-[#FFF9F0] border border-[#C99A52]/40 shadow-[0_6px_18px_-4px_rgba(168,120,48,0.25)] flex items-center justify-center p-1 overflow-hidden transition-transform duration-300 group-hover:scale-105">
+            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-[#FFFDF9] border border-[#C99A52]/50 shadow-[0_8px_22px_-4px_rgba(168,120,48,0.28)] flex items-center justify-center p-1 overflow-hidden transition-transform duration-300 group-hover:scale-105">
               <img
                 src="/assets/vizora-logo-original.jpeg"
                 alt="Vizora Official Logo"
@@ -100,10 +100,10 @@ export const Navbar: React.FC<NavbarProps> = ({
           </div>
 
           <div className="flex flex-col">
-            <span className="font-serif tracking-[0.14em] text-xl sm:text-2xl font-medium text-[#211C19] leading-none group-hover:text-[#9A6B28] transition-colors">
+            <span className="font-serif tracking-[0.15em] text-xl sm:text-[26px] font-normal text-[#211C19] leading-none group-hover:text-[#9A6B28] transition-colors">
               VIZORA
             </span>
-            <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.24em] text-[#49382B] font-sans font-medium mt-1">
+            <span className="text-[9px] sm:text-[9.5px] uppercase tracking-[0.24em] text-[#49382B] font-sans font-medium mt-1">
               CREATIVE WEB DESIGN STUDIO
             </span>
           </div>
@@ -124,16 +124,16 @@ export const Navbar: React.FC<NavbarProps> = ({
                 key={link.id}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.id, link.page)}
-                className={`relative py-2 text-[11px] xl:text-xs uppercase tracking-[0.18em] font-semibold transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C99A52] rounded ${
+                className={`relative py-2 text-[11px] xl:text-[11.5px] uppercase tracking-[0.18em] font-semibold transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C99A52] rounded ${
                   isActive
-                    ? 'text-[#A67635]'
-                    : 'text-[#211C19] hover:text-[#A67635]'
+                    ? 'text-[#9E6F2B]'
+                    : 'text-[#211C19] hover:text-[#9E6F2B]'
                 }`}
               >
                 <span>{link.label}</span>
                 {isActive && (
                   <span
-                    className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-[#C99A52] rounded-full"
+                    className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-[#B8863B] rounded-full"
                     aria-hidden="true"
                   />
                 )}
@@ -147,7 +147,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           <button
             type="button"
             onClick={() => onStartProject()}
-            className="group relative inline-flex items-center gap-2.5 px-6 py-3 rounded-full text-[11px] font-bold uppercase tracking-[0.18em] bg-champagne-gold-pill transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#211C19]"
+            className="group relative inline-flex items-center gap-2.5 px-6 py-3 rounded-full text-[11px] font-bold uppercase tracking-[0.18em] bg-champagne-nav-pill transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#211C19]"
           >
             <span>START YOUR PROJECT</span>
             <ArrowUpRight className="w-3.5 h-3.5 text-[#211C19] transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

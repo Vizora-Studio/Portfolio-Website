@@ -51,44 +51,82 @@
 
 @layer utilities {
   .bg-champagne-gold-pill {
-    background: linear-gradient(135deg, #ECCF96 0%, #DFB870 48%, #C99A52 100%);
+    background: linear-gradient(180deg, #EED49B 0%, #DFB56C 48%, #C99846 100%);
     box-shadow:
-      0 14px 32px -8px rgba(179, 128, 52, 0.36),
-      0 0 0 1px rgba(168, 120, 48, 0.42),
-      inset 0 1px 1px 0 rgba(255, 251, 242, 0.72);
+      0 16px 36px -6px rgba(190, 138, 56, 0.44),
+      0 4px 12px -2px rgba(33, 28, 25, 0.08),
+      0 0 0 1px rgba(168, 120, 48, 0.46),
+      inset 0 1.5px 1.5px 0 rgba(255, 253, 248, 0.85),
+      inset 0 -1px 1.5px 0 rgba(133, 91, 29, 0.22);
     color: #211C19;
   }
 
   .bg-champagne-gold-pill:hover {
-    background: linear-gradient(135deg, #F3D9A4 0%, #E5C27D 48%, #D1A35B 100%);
+    background: linear-gradient(180deg, #F5DEA8 0%, #E6BF78 48%, #D2A252 100%);
     box-shadow:
-      0 18px 38px -8px rgba(179, 128, 52, 0.48),
-      0 0 0 1px rgba(168, 120, 48, 0.58),
-      inset 0 1px 1px 0 rgba(255, 251, 242, 0.85);
+      0 20px 42px -6px rgba(190, 138, 56, 0.54),
+      0 6px 16px -2px rgba(33, 28, 25, 0.1),
+      0 0 0 1px rgba(168, 120, 48, 0.62),
+      inset 0 1.5px 2px 0 rgba(255, 253, 248, 0.92);
     color: #211C19;
+  }
+
+  .bg-champagne-nav-pill {
+    background: linear-gradient(135deg, rgba(242, 216, 162, 0.88) 0%, rgba(209, 164, 90, 0.94) 100%);
+    border: 1px solid rgba(130, 95, 42, 0.62);
+    box-shadow:
+      0 10px 26px -6px rgba(179, 128, 52, 0.34),
+      inset 0 1px 1px 0 rgba(255, 252, 245, 0.78);
+    color: #211C19;
+  }
+
+  .bg-champagne-nav-pill:hover {
+    background: linear-gradient(135deg, rgba(247, 224, 174, 0.95) 0%, rgba(217, 173, 99, 0.98) 100%);
+    border-color: rgba(130, 95, 42, 0.82);
+    box-shadow:
+      0 14px 30px -6px rgba(179, 128, 52, 0.46),
+      inset 0 1px 1.5px 0 rgba(255, 252, 245, 0.9);
+    color: #211C19;
+  }
+
+  .luxury-card-surface {
+    background: linear-gradient(165deg, #FFFDF9 0%, #FFF9F0 58%, #FAF0E2 100%);
+    box-shadow:
+      0 24px 64px -16px rgba(73, 56, 43, 0.11),
+      0 4px 16px -4px rgba(73, 56, 43, 0.05),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.92);
+  }
+
+  .luxury-double-frame {
+    outline: 1px solid rgba(201, 154, 82, 0.22);
+    outline-offset: -8px;
   }
 
   .bg-champagne-sunlit {
     background:
-      radial-gradient(circle at 14% 18%, rgba(255, 249, 240, 0.92), transparent 46%),
-      radial-gradient(circle at 86% 22%, rgba(231, 210, 184, 0.55), transparent 48%),
-      radial-gradient(circle at 50% 85%, rgba(201, 154, 82, 0.12), transparent 45%),
+      radial-gradient(circle at 14% 18%, rgba(255, 251, 244, 0.95), transparent 46%),
+      radial-gradient(circle at 86% 22%, rgba(231, 210, 184, 0.62), transparent 48%),
+      radial-gradient(circle at 50% 85%, rgba(201, 154, 82, 0.15), transparent 45%),
       #F5EBDD;
   }
 
   .bg-cream-atelier {
     background:
-      radial-gradient(circle at 80% 15%, rgba(245, 235, 221, 0.7), transparent 45%),
-      radial-gradient(circle at 18% 85%, rgba(231, 210, 184, 0.38), transparent 45%),
+      radial-gradient(circle at 80% 15%, rgba(245, 235, 221, 0.75), transparent 45%),
+      radial-gradient(circle at 18% 85%, rgba(231, 210, 184, 0.42), transparent 45%),
       #FFF9F0;
   }
 
   .bg-blush-editorial {
-    background: linear-gradient(145deg, #FFF9F0 0%, #F5E6E0 55%, #EED8D0 100%);
+    background: linear-gradient(145deg, #FFFBF6 0%, #F5E6E0 52%, #ECD5CC 100%);
+    box-shadow:
+      0 24px 64px -16px rgba(102, 68, 58, 0.11),
+      0 4px 16px -4px rgba(73, 56, 43, 0.05),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.9);
   }
 
   .text-champagne-gold-gradient {
-    background: linear-gradient(135deg, #B58338 0%, #C99A52 50%, #9A6B28 100%);
+    background: linear-gradient(135deg, #B68438 0%, #966824 45%, #C99A52 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }

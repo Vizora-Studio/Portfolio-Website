@@ -74,26 +74,29 @@ export const AboutVizora: React.FC<AboutVizoraProps> = ({ onStartProject }) => {
 
           {/* Right Column: Architectural Studio Plaque & Official Brand Mark (6 cols) */}
           <div className="lg:col-span-6">
-            <div className="relative rounded-[32px] bg-[#FFF9F0] p-7 sm:p-10 border border-[#C99A52]/40 shadow-champagne-elevated">
+            <div className="relative rounded-[32px] luxury-card-surface luxury-double-frame p-7 sm:p-10 border border-[#C99A52]/45">
               {/* Official Vizora Logo Presentation Frame */}
-              <div className="rounded-2xl bg-[#FAF9F5] p-6 sm:p-8 border border-[#C99A52]/35 shadow-sm mb-6 flex flex-col items-center text-center">
+              <div className="rounded-2xl bg-[#FFFDF9] p-6 sm:p-8 border border-[#C99A52]/35 shadow-[inset_0_1px_0_rgba(255,255,255,0.9)] mb-6 flex flex-col items-center text-center relative overflow-hidden">
+                <div className="text-[9.5px] font-sans font-bold uppercase tracking-[0.28em] text-[#9A6B28] mb-3">
+                  ✦ &nbsp; OFFICIAL STUDIO ATELIER CREST &nbsp; ✦
+                </div>
                 <img
                   src="/assets/vizora-logo-original.jpeg"
                   alt="Official Vizora Brand Logo"
-                  className="w-full max-w-[300px] h-auto object-contain mx-auto"
+                  className="w-full max-w-[290px] h-auto object-contain mx-auto mix-blend-multiply"
                 />
               </div>
 
               {/* Studio Editorial Photography Pair */}
               <div className="grid grid-cols-2 gap-4 mb-6">
-                <div className="rounded-2xl overflow-hidden border border-[#C99A52]/30 h-44">
+                <div className="rounded-2xl overflow-hidden border border-[#C99A52]/40 h-44 shadow-sm">
                   <img
                     src="/images/fashion-stylist.jpg"
                     alt="Creative styling and lookbook direction at Vizora"
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="rounded-2xl overflow-hidden border border-[#C99A52]/30 h-44">
+                <div className="rounded-2xl overflow-hidden border border-[#C99A52]/40 h-44 shadow-sm">
                   <img
                     src="/images/small-business.jpg"
                     alt="Architectural studio and business design"
@@ -103,12 +106,12 @@ export const AboutVizora: React.FC<AboutVizoraProps> = ({ onStartProject }) => {
               </div>
 
               {/* Studio Identity & Selective Brand Accent Note */}
-              <div className="p-5 rounded-2xl bg-[#F5EBDD] border border-[#C99A52]/30 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div className="p-5 rounded-2xl bg-[#F5EBDD]/90 border border-[#C99A52]/35 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
                   <span className="text-[10px] font-sans font-bold uppercase tracking-[0.22em] text-[#9A6B28] block mb-1">
                     VIZORA STUDIO SIGNATURE
                   </span>
-                  <p className="font-serif italic text-base text-[#211C19]">
+                  <p className="font-serif italic text-lg text-[#211C19]">
                     “Your Vision. Your Website. Your Next Opportunity.”
                   </p>
                 </div>

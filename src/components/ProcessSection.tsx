@@ -54,7 +54,7 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({
           {PROCESS_STAGES.map((stage) => (
             <div
               key={stage.number}
-              className="relative z-10 rounded-[28px] bg-[#F5EBDD]/85 border border-[#C99A52]/35 p-7 sm:p-8 shadow-champagne-card hover:shadow-champagne-elevated transition-all duration-300 flex flex-col justify-between"
+              className="relative z-10 rounded-[28px] luxury-card-surface luxury-double-frame border border-[#C99A52]/40 p-7 sm:p-8 transition-all duration-300 flex flex-col justify-between"
             >
               <div>
                 {/* Step Number Emblem */}

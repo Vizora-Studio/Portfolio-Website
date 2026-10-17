@@ -47,7 +47,7 @@ export const WhyVizora: React.FC = () => {
           {WHY_VIZORA_PILLARS.map((pillar, idx) => (
             <article
               key={pillar.title}
-              className="group relative p-8 sm:p-10 rounded-[28px] bg-[#FFF9F0] border border-[#C99A52]/35 shadow-champagne-card hover:shadow-champagne-elevated transition-all duration-300 flex flex-col justify-between"
+              className="group relative p-8 sm:p-10 rounded-[28px] luxury-card-surface luxury-double-frame border border-[#C99A52]/40 hover:border-[#C99A52]/70 transition-all duration-300 flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between gap-4 pb-5 mb-6 border-b border-[#C99A52]/25">
