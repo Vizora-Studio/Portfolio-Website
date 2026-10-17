@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { ArrowLeft } from 'lucide-react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
-import { WhyWebsiteMatters } from './components/WhyWebsiteMatters';
+import { FeaturedWork } from './components/FeaturedWork';
 import { ServicesSection } from './components/ServicesSection';
 import { WhoWeBuildFor } from './components/WhoWeBuildFor';
-import { FeaturedWork } from './components/FeaturedWork';
-import { ProcessSection } from './components/ProcessSection';
 import { WhyVizora } from './components/WhyVizora';
+import { ProcessSection } from './components/ProcessSection';
 import { AboutVizora } from './components/AboutVizora';
 import { FAQSection } from './components/FAQSection';
 import { ProjectInquiryForm } from './components/ProjectInquiryForm';
@@ -16,7 +16,7 @@ import { ModelPortfolioDemo } from './demos/ModelPortfolioDemo';
 import { MakeupArtistDemo } from './demos/MakeupArtistDemo';
 import { PhotographerDemo } from './demos/PhotographerDemo';
 import { BeautyStudioDemo } from './demos/BeautyStudioDemo';
-import { DemoRouteId, InquiryPreselection } from './types';
+import { DemoRouteId, InquiryPreselection, PageRouteId } from './types';
 
 function parseDemoRoute(pathname: string): DemoRouteId | null {
   const clean = pathname.replace(/\/+$/, '');
@@ -27,9 +27,23 @@ function parseDemoRoute(pathname: string): DemoRouteId | null {
   return null;
 }
 
+function parsePageRoute(pathname: string): PageRouteId {
+  const clean = pathname.replace(/\/+$/, '');
+  if (clean === '/services') return 'services';
+  if (clean === '/work') return 'work';
+  if (clean === '/who-we-help') return 'who-we-help';
+  if (clean === '/process') return 'process';
+  if (clean === '/about') return 'about';
+  if (clean === '/start-project') return 'start-project';
+  return 'home';
+}
+
 export const App: React.FC = () => {
   const [activeDemo, setActiveDemo] = useState<DemoRouteId | null>(() =>
     parseDemoRoute(window.location.pathname)
+  );
+  const [activePage, setActivePage] = useState<PageRouteId>(() =>
+    parsePageRoute(window.location.pathname)
   );
   const [inquiryPreselection, setInquiryPreselection] =
     useState<InquiryPreselection | null>(null);
@@ -38,6 +52,7 @@ export const App: React.FC = () => {
   useEffect(() => {
     const handlePopState = () => {
       setActiveDemo(parseDemoRoute(window.location.pathname));
+      setActivePage(parsePageRoute(window.location.pathname));
     };
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
@@ -45,10 +60,19 @@ export const App: React.FC = () => {
 
   // Track active section while on homepage
   useEffect(() => {
-    if (activeDemo) return;
-    const sectionIds = ['hero', 'services', 'work', 'who-we-help', 'process', 'about'];
+    if (activeDemo || activePage !== 'home') return;
+    const sectionIds = [
+      'hero',
+      'work',
+      'services',
+      'who-we-help',
+      'why-vizora',
+      'process',
+      'about',
+      'inquiry',
+    ];
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + 220;
+      const scrollPosition = window.scrollY + 240;
       for (let i = sectionIds.length - 1; i >= 0; i--) {
         const el = document.getElementById(sectionIds[i]);
         if (el && el.offsetTop <= scrollPosition) {
@@ -59,7 +83,7 @@ export const App: React.FC = () => {
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [activeDemo]);
+  }, [activeDemo, activePage]);
 
   const scrollToElement = useCallback((elementId: string) => {
     requestAnimationFrame(() => {
@@ -72,16 +96,17 @@ export const App: React.FC = () => {
 
   const handleNavigateSection = useCallback(
     (sectionId: string) => {
-      if (activeDemo) {
+      if (activeDemo || activePage !== 'home') {
         window.history.pushState({}, '', `/#${sectionId}`);
         setActiveDemo(null);
+        setActivePage('home');
         setTimeout(() => scrollToElement(sectionId), 60);
       } else {
         window.history.replaceState({}, '', `/#${sectionId}`);
         scrollToElement(sectionId);
       }
     },
-    [activeDemo, scrollToElement]
+    [activeDemo, activePage, scrollToElement]
   );
 
   const handleStartProject = useCallback(
@@ -89,16 +114,17 @@ export const App: React.FC = () => {
       if (preselection) {
         setInquiryPreselection({ ...preselection });
       }
-      if (activeDemo) {
+      if (activeDemo || activePage !== 'home') {
         window.history.pushState({}, '', '/#inquiry');
         setActiveDemo(null);
+        setActivePage('home');
         setTimeout(() => scrollToElement('inquiry'), 80);
       } else {
         window.history.replaceState({}, '', '/#inquiry');
         scrollToElement('inquiry');
       }
     },
-    [activeDemo, scrollToElement]
+    [activeDemo, activePage, scrollToElement]
   );
 
   const handleOpenDemo = useCallback((demoId: DemoRouteId) => {
@@ -111,6 +137,7 @@ export const App: React.FC = () => {
   const handleBackToStudio = useCallback(() => {
     window.history.pushState({}, '', '/#work');
     setActiveDemo(null);
+    setActivePage('home');
     setTimeout(() => scrollToElement('work'), 60);
   }, [scrollToElement]);
 
@@ -156,65 +183,115 @@ export const App: React.FC = () => {
   }
 
   return (
-    <div className="relative min-h-screen bg-vizora-black text-white flex flex-col font-sans selection:bg-vizora-blue selection:text-white">
+    <div className="relative min-h-screen bg-[#F5EBDD] text-[#211C19] flex flex-col font-sans selection:bg-[#C99A52]/30 selection:text-[#211C19]">
       <Navbar
         onNavigateSection={handleNavigateSection}
         onStartProject={handleStartProject}
         activeSection={activeSection}
+        activePage={activePage}
       />
 
       <main className="flex-1">
-        {/* Section 6: Hero — The Signature Experience */}
-        <Hero
-          onStartProject={handleStartProject}
-          onExploreWork={() => handleNavigateSection('work')}
-          onOpenDemo={handleOpenDemo}
-        />
+        {activePage !== 'home' ? (
+          <div className="pt-28">
+            <div className="max-w-[1380px] mx-auto px-4 sm:px-8 lg:px-12 pb-4">
+              <button
+                type="button"
+                onClick={() => handleNavigateSection('hero')}
+                className="inline-flex items-center gap-2 text-xs font-sans font-bold uppercase tracking-[0.18em] text-[#9A6B28] hover:text-[#211C19] transition-colors"
+              >
+                <ArrowLeft className="w-4 h-4" />
+                <span>Back to Full Studio Experience</span>
+              </button>
+            </div>
+            {activePage === 'work' && (
+              <FeaturedWork
+                onOpenDemo={handleOpenDemo}
+                onStartProject={handleStartProject}
+              />
+            )}
+            {activePage === 'services' && (
+              <ServicesSection
+                onStartProject={handleStartProject}
+                onOpenDemo={handleOpenDemo}
+              />
+            )}
+            {activePage === 'who-we-help' && (
+              <WhoWeBuildFor
+                onStartProject={handleStartProject}
+                onOpenDemo={handleOpenDemo}
+              />
+            )}
+            {activePage === 'process' && (
+              <>
+                <ProcessSection onStartProject={handleStartProject} />
+                <FAQSection />
+              </>
+            )}
+            {activePage === 'about' && (
+              <>
+                <AboutVizora onStartProject={handleStartProject} />
+                <WhyVizora />
+              </>
+            )}
+            <ProjectInquiryForm preselection={inquiryPreselection} />
+            <FinalCTA
+              onStartProject={handleStartProject}
+              onExploreWork={() => handleNavigateSection('work')}
+            />
+          </div>
+        ) : (
+          <>
+            {/* Section 01: Hero — The Editorial Showcase */}
+            <Hero
+              onStartProject={handleStartProject}
+              onExploreWork={() => handleNavigateSection('work')}
+              onOpenDemo={handleOpenDemo}
+            />
 
-        {/* Section 7: Why Your Own Website Matters */}
-        <WhyWebsiteMatters onStartProject={handleStartProject} />
+            {/* Section 02: Featured Portfolio — Selected Works */}
+            <FeaturedWork
+              onOpenDemo={handleOpenDemo}
+              onStartProject={handleStartProject}
+            />
 
-        {/* Section 8: Our Services */}
-        <ServicesSection
-          onStartProject={handleStartProject}
-          onOpenDemo={handleOpenDemo}
-        />
+            {/* Section 03: Services — Crafted Digital Offerings */}
+            <ServicesSection
+              onStartProject={handleStartProject}
+              onOpenDemo={handleOpenDemo}
+            />
 
-        {/* Section 9: Who We Build For */}
-        <WhoWeBuildFor
-          onStartProject={handleStartProject}
-          onOpenDemo={handleOpenDemo}
-        />
+            {/* Section 04: Who We Help — Industry Showcase */}
+            <WhoWeBuildFor
+              onStartProject={handleStartProject}
+              onOpenDemo={handleOpenDemo}
+            />
 
-        {/* Section 10: Featured Work — 4 Navigable Concept Demo Websites */}
-        <FeaturedWork
-          onOpenDemo={handleOpenDemo}
-          onStartProject={handleStartProject}
-        />
+            {/* Section 05: Why Vizora — The Studio Difference */}
+            <WhyVizora />
 
-        {/* Section 11: Our Process */}
-        <ProcessSection onStartProject={handleStartProject} />
+            {/* Section 06: Our Process — Calm, Clear, Collaborative */}
+            <ProcessSection onStartProject={handleStartProject} />
 
-        {/* Section 12: Why Vizora */}
-        <WhyVizora />
+            {/* Section 07: Studio Introduction — About Vizora */}
+            <AboutVizora onStartProject={handleStartProject} />
 
-        {/* Section 13: About Vizora */}
-        <AboutVizora onStartProject={handleStartProject} />
+            {/* Frequently Asked Questions */}
+            <FAQSection />
 
-        {/* Section 14: Frequently Asked Questions */}
-        <FAQSection />
+            {/* Start Your Project Inquiry Form */}
+            <ProjectInquiryForm preselection={inquiryPreselection} />
 
-        {/* Section 15: Project Inquiry Form */}
-        <ProjectInquiryForm preselection={inquiryPreselection} />
-
-        {/* Section 16: Final CTA */}
-        <FinalCTA
-          onStartProject={handleStartProject}
-          onExploreWork={() => handleNavigateSection('work')}
-        />
+            {/* Section 08: Final Project Invitation */}
+            <FinalCTA
+              onStartProject={handleStartProject}
+              onExploreWork={() => handleNavigateSection('work')}
+            />
+          </>
+        )}
       </main>
 
-      {/* Section 16: Footer */}
+      {/* Section 09: Footer */}
       <Footer
         onNavigateSection={handleNavigateSection}
         onStartProject={handleStartProject}

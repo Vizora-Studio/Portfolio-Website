@@ -15,6 +15,7 @@ export function formatProjectBriefText(payload: ProjectInquiryPayload, reference
     `================================================`,
     `Full Name: ${payload.fullName.trim()}`,
     `Email Address: ${payload.email.trim()}`,
+    `Business / Brand Name: ${payload.businessName?.trim() || 'None provided'}`,
     `Profession / Business Type: ${payload.profession}`,
     `Website Type: ${payload.websiteType}`,
     `Preferred Design Style: ${payload.designStyle}`,
@@ -22,7 +23,7 @@ export function formatProjectBriefText(payload: ProjectInquiryPayload, reference
     `Existing Website URL: ${payload.existingWebsiteUrl.trim() || 'None provided'}`,
     `Budget Range: ${payload.budgetRange || 'Request a Quote / Not specified'}`,
     ``,
-    `Project Details:`,
+    `Additional Details:`,
     `${payload.projectDetails.trim()}`,
   ];
   return lines.join('\n');

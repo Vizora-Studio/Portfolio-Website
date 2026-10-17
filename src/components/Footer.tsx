@@ -1,10 +1,15 @@
 import React from 'react';
 import { ArrowUp, ArrowUpRight } from 'lucide-react';
-import { DemoRouteId, InquiryPreselection, ProfessionOption } from '../types';
+import {
+  DemoRouteId,
+  InquiryPreselection,
+  PageRouteId,
+  ProfessionOption,
+} from '../types';
 import { FEATURED_DEMOS } from '../data/vizoraData';
 
 interface FooterProps {
-  onNavigateSection: (sectionId: string) => void;
+  onNavigateSection: (sectionId: string, pageRoute?: PageRouteId) => void;
   onStartProject: (preselection?: InquiryPreselection) => void;
   onOpenDemo: (demoId: DemoRouteId) => void;
 }
@@ -19,57 +24,72 @@ export const Footer: React.FC<FooterProps> = ({
   };
 
   const industriesServed: { label: string; profession: ProfessionOption }[] = [
-    { label: 'Models & Fashion Creators', profession: 'Model or fashion creator' },
-    { label: 'Makeup Artists & Bridal Beauty', profession: 'Makeup artist or beauty professional' },
-    { label: 'Photographers & Videographers', profession: 'Photographer or videographer' },
+    { label: 'Models & Fashion Talent', profession: 'Model or fashion creator' },
+    {
+      label: 'Makeup Artists & Beauty Professionals',
+      profession: 'Makeup artist or beauty professional',
+    },
+    {
+      label: 'Photographers & Visual Storytellers',
+      profession: 'Photographer or videographer',
+    },
     { label: 'Salons & Beauty Studios', profession: 'Salon or beauty studio' },
-    { label: 'Fashion & Creative Professionals', profession: 'Fashion or creative professional' },
-    { label: 'Small Businesses & Studios', profession: 'Small business' },
+    {
+      label: 'Entrepreneurs & Personal Brands',
+      profession: 'Fashion or creative professional',
+    },
+    {
+      label: 'Small Businesses & Growing Companies',
+      profession: 'Small business',
+    },
   ];
 
   return (
-    <footer className="relative bg-[#080706] text-white border-t border-white/10 pt-20 pb-12 px-4 sm:px-6 lg:px-8 overflow-hidden">
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-16 border-b border-white/10">
-          {/* Column 1: Actual Vizora Logo & Brand Description (4 cols) */}
+    <footer className="relative bg-[#211C19] text-[#F5EBDD] border-t border-[#C99A52]/30 pt-20 pb-12 px-4 sm:px-8 lg:px-12 overflow-hidden">
+      {/* Subtle Warm Gold Ambient Glow */}
+      <div
+        className="absolute top-0 left-1/3 w-[500px] h-[250px] bg-[#C99A52]/10 rounded-full blur-[140px] pointer-events-none"
+        aria-hidden="true"
+      />
+
+      <div className="max-w-[1380px] mx-auto relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-16 border-b border-[#C99A52]/20">
+          {/* Column 1: Vizora Logo & Studio Description (4 cols) */}
           <div className="lg:col-span-4 flex flex-col justify-between">
             <div>
               <a
                 href="#hero"
                 onClick={(e) => {
                   e.preventDefault();
-                  onNavigateSection('hero');
+                  onNavigateSection('hero', 'home');
                 }}
                 className="inline-flex items-center gap-3.5 mb-5 group"
               >
-                <div className="h-14 px-3 py-1.5 rounded-xl bg-[#FAF9F5] border border-vizora-yellow/40 flex items-center justify-center">
+                <div className="w-12 h-12 rounded-xl bg-[#FFF9F0] border border-[#C99A52]/50 p-1.5 flex items-center justify-center">
                   <img
                     src="/assets/vizora-logo-original.jpeg"
                     alt="Vizora Official Logo"
-                    className="h-full w-auto object-contain"
+                    className="w-full h-full object-contain"
                   />
                 </div>
                 <div>
-                  <div className="flex items-center gap-1.5">
-                    <span className="font-serif tracking-[0.18em] text-xl font-bold text-white group-hover:text-vizora-yellow transition-colors">
-                      VIZORA
-                    </span>
-                    <span className="w-1.5 h-1.5 rounded-full bg-vizora-yellow" />
-                  </div>
-                  <span className="text-[10px] uppercase tracking-[0.2em] text-slate-400 block mt-0.5">
-                    Creative Web Design Studio
+                  <span className="font-serif tracking-[0.16em] text-2xl font-normal text-[#FFF9F0] group-hover:text-[#E3BF82] transition-colors block leading-none">
+                    VIZORA
+                  </span>
+                  <span className="text-[10px] uppercase tracking-[0.22em] text-[#E7D2B8]/80 block mt-1">
+                    CREATIVE WEB DESIGN STUDIO
                   </span>
                 </div>
               </a>
 
-              <p className="font-serif italic text-base text-vizora-yellow mb-3">
-                “Your Vision. Your Website. Your Next Opportunity.”
+              <p className="font-serif italic text-lg text-[#E3BF82] mb-3">
+                “Your Talent Deserves a Website as Exceptional as You.”
               </p>
 
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-sm">
-                Vizora is a creative web design and development startup building custom portfolio
-                websites, business websites, and personal brand websites for creatives,
-                professionals, and small businesses.
+              <p className="text-xs sm:text-sm text-[#E7D2B8]/85 leading-relaxed max-w-sm">
+                Vizora is a luxury creative web design and development studio
+                crafting bespoke portfolio websites, immersive 3D experiences,
+                and business websites for creative talent and ambitious brands.
               </p>
             </div>
 
@@ -77,30 +97,42 @@ export const Footer: React.FC<FooterProps> = ({
               <button
                 type="button"
                 onClick={() => onStartProject()}
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-[0.15em] text-vizora-black bg-vizora-blue hover:bg-vizora-blue-light shadow-blue-glow transition-all"
+                className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full text-xs font-bold uppercase tracking-[0.16em] bg-champagne-gold-pill text-[#211C19] transition-all"
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-vizora-black" />
                 <span>Start Your Project</span>
-                <ArrowUpRight className="w-3.5 h-3.5 text-vizora-black" />
+                <ArrowUpRight className="w-3.5 h-3.5 text-[#211C19]" />
               </button>
             </div>
           </div>
 
-          {/* Column 2: Services & About (2 cols) */}
+          {/* Column 2: Studio Navigation & Services (2 cols) */}
           <div className="lg:col-span-2">
-            <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-vizora-yellow mb-4">
+            <h3 className="text-[11px] font-sans font-bold uppercase tracking-[0.22em] text-[#E3BF82] mb-4">
               Services
             </h3>
-            <ul className="space-y-2.5 text-xs text-slate-300">
+            <ul className="space-y-2.5 text-xs text-[#F5EBDD]/85">
               <li>
                 <button
                   type="button"
                   onClick={() =>
                     onStartProject({ websiteType: 'Portfolio website' })
                   }
-                  className="hover:text-vizora-yellow transition-colors text-left"
+                  className="hover:text-[#E3BF82] transition-colors text-left"
                 >
-                  Portfolio Websites
+                  Luxury Portfolio Websites
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() =>
+                    onStartProject({
+                      websiteType: '3D interactive portfolio website',
+                    })
+                  }
+                  className="hover:text-[#E3BF82] transition-colors text-left"
+                >
+                  Immersive 3D Websites
                 </button>
               </li>
               <li>
@@ -109,7 +141,7 @@ export const Footer: React.FC<FooterProps> = ({
                   onClick={() =>
                     onStartProject({ websiteType: 'Business website' })
                   }
-                  className="hover:text-vizora-yellow transition-colors text-left"
+                  className="hover:text-[#E3BF82] transition-colors text-left"
                 >
                   Business Websites
                 </button>
@@ -120,38 +152,27 @@ export const Footer: React.FC<FooterProps> = ({
                   onClick={() =>
                     onStartProject({ websiteType: 'Personal brand website' })
                   }
-                  className="hover:text-vizora-yellow transition-colors text-left"
+                  className="hover:text-[#E3BF82] transition-colors text-left"
                 >
-                  Personal Brand Websites
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() =>
-                    onStartProject({ websiteType: 'Website redesign' })
-                  }
-                  className="hover:text-vizora-yellow transition-colors text-left"
-                >
-                  Website Redesigns
+                  Bespoke Brand Experiences
                 </button>
               </li>
             </ul>
 
-            <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-vizora-yellow mt-7 mb-3">
-              About &amp; Studio
+            <h3 className="text-[11px] font-sans font-bold uppercase tracking-[0.22em] text-[#E3BF82] mt-7 mb-3">
+              Navigation
             </h3>
-            <ul className="space-y-2 text-xs text-slate-300">
+            <ul className="space-y-2 text-xs text-[#F5EBDD]/85">
               <li>
                 <a
-                  href="#about"
+                  href="#work"
                   onClick={(e) => {
                     e.preventDefault();
-                    onNavigateSection('about');
+                    onNavigateSection('work', 'work');
                   }}
-                  className="hover:text-vizora-yellow transition-colors"
+                  className="hover:text-[#E3BF82] transition-colors"
                 >
-                  About Vizora
+                  Our Work
                 </a>
               </li>
               <li>
@@ -159,23 +180,23 @@ export const Footer: React.FC<FooterProps> = ({
                   href="#process"
                   onClick={(e) => {
                     e.preventDefault();
-                    onNavigateSection('process');
+                    onNavigateSection('process', 'process');
                   }}
-                  className="hover:text-vizora-yellow transition-colors"
+                  className="hover:text-[#E3BF82] transition-colors"
                 >
-                  Our 4-Stage Process
+                  Our Process
                 </a>
               </li>
               <li>
                 <a
-                  href="#faq"
+                  href="#about"
                   onClick={(e) => {
                     e.preventDefault();
-                    onNavigateSection('faq');
+                    onNavigateSection('about', 'about');
                   }}
-                  className="hover:text-vizora-yellow transition-colors"
+                  className="hover:text-[#E3BF82] transition-colors"
                 >
-                  Frequently Asked Questions
+                  About Vizora
                 </a>
               </li>
             </ul>
@@ -183,10 +204,10 @@ export const Footer: React.FC<FooterProps> = ({
 
           {/* Column 3: Industries Served (3 cols) */}
           <div className="lg:col-span-3">
-            <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-vizora-yellow mb-4">
-              Industries Served
+            <h3 className="text-[11px] font-sans font-bold uppercase tracking-[0.22em] text-[#E3BF82] mb-4">
+              Who We Help
             </h3>
-            <ul className="space-y-2.5 text-xs text-slate-300">
+            <ul className="space-y-2.5 text-xs text-[#F5EBDD]/85">
               {industriesServed.map((ind) => (
                 <li key={ind.label}>
                   <button
@@ -194,9 +215,9 @@ export const Footer: React.FC<FooterProps> = ({
                     onClick={() =>
                       onStartProject({ profession: ind.profession })
                     }
-                    className="hover:text-vizora-yellow transition-colors text-left flex items-center gap-2"
+                    className="hover:text-[#E3BF82] transition-colors text-left flex items-center gap-2"
                   >
-                    <span className="w-1 h-1 rounded-full bg-vizora-blue-light" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#C99A52]" />
                     <span>{ind.label}</span>
                   </button>
                 </li>
@@ -204,22 +225,24 @@ export const Footer: React.FC<FooterProps> = ({
             </ul>
           </div>
 
-          {/* Column 4: Live Client Websites, Featured Demos & Contact (3 cols) */}
+          {/* Column 4: Live Client Websites & Concept Showcases (3 cols) */}
           <div className="lg:col-span-3">
-            <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-vizora-yellow mb-3">
+            <h3 className="text-[11px] font-sans font-bold uppercase tracking-[0.22em] text-[#E3BF82] mb-3">
               Live Client Websites
             </h3>
-            <ul className="space-y-2 text-xs text-slate-200 mb-5 pb-4 border-b border-white/10">
+            <ul className="space-y-2.5 text-xs text-[#F5EBDD] mb-5 pb-4 border-b border-[#C99A52]/20">
               <li>
                 <a
                   href="https://khadija-portfolio-og.vercel.app/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-vizora-yellow transition-colors inline-flex items-center gap-1.5"
+                  className="hover:text-[#E3BF82] transition-colors inline-flex items-center gap-1.5"
                 >
-                  <span className="font-mono text-[10px] text-vizora-yellow">LIVE 01</span>
-                  <span>Khadija — Simple Model Portfolio</span>
-                  <ArrowUpRight className="w-3 h-3 text-vizora-yellow" />
+                  <span className="font-mono text-[10px] text-[#C99A52]">
+                    01
+                  </span>
+                  <span>Khadija — Simple Editorial Portfolio</span>
+                  <ArrowUpRight className="w-3 h-3 text-[#C99A52]" />
                 </a>
               </li>
               <li>
@@ -227,19 +250,21 @@ export const Footer: React.FC<FooterProps> = ({
                   href="https://khadija-3d-portfolio.vercel.app/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-vizora-yellow transition-colors inline-flex items-center gap-1.5"
+                  className="hover:text-[#E3BF82] transition-colors inline-flex items-center gap-1.5"
                 >
-                  <span className="font-mono text-[10px] text-vizora-purple-light">LIVE 02</span>
-                  <span>Khadija — 3D Motion Portfolio</span>
-                  <ArrowUpRight className="w-3 h-3 text-vizora-yellow" />
+                  <span className="font-mono text-[10px] text-[#C99A52]">
+                    02
+                  </span>
+                  <span>Khadija — 3D &amp; Motion Portfolio</span>
+                  <ArrowUpRight className="w-3 h-3 text-[#C99A52]" />
                 </a>
               </li>
             </ul>
 
-            <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-vizora-yellow mb-3">
-              Featured Studio Demos
+            <h3 className="text-[11px] font-sans font-bold uppercase tracking-[0.22em] text-[#E3BF82] mb-3">
+              Interactive Concept Demos
             </h3>
-            <ul className="space-y-2 text-xs text-slate-300 mb-5">
+            <ul className="space-y-2 text-xs text-[#F5EBDD]/85">
               {FEATURED_DEMOS.map((demo) => (
                 <li key={demo.id}>
                   <a
@@ -248,48 +273,36 @@ export const Footer: React.FC<FooterProps> = ({
                       e.preventDefault();
                       onOpenDemo(demo.id);
                     }}
-                    className="hover:text-vizora-yellow transition-colors inline-flex items-center gap-1.5"
+                    className="hover:text-[#E3BF82] transition-colors inline-flex items-center gap-1.5"
                   >
-                    <span className="font-mono text-[10px] text-vizora-blue-light">
+                    <span className="font-mono text-[10px] text-[#C99A52]">
                       {demo.number}
                     </span>
                     <span>{demo.industry}</span>
-                    <ArrowUpRight className="w-3 h-3" />
+                    <ArrowUpRight className="w-3 h-3 text-[#C99A52]" />
                   </a>
                 </li>
               ))}
             </ul>
-
-            <div className="pt-4 border-t border-white/10">
-              <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-vizora-yellow mb-2">
-                Contact &amp; Project Inquiries
-              </h3>
-              <button
-                type="button"
-                onClick={() => onStartProject()}
-                className="inline-flex items-center gap-1.5 text-xs font-semibold text-vizora-blue-light hover:text-vizora-yellow transition-colors"
-              >
-                <span>Open Project Inquiry Form</span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
-              </button>
-            </div>
           </div>
         </div>
 
         {/* Bottom Copyright & Back to Top Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#E7D2B8]/75">
           <div className="flex flex-wrap items-center gap-2">
-            <span>© {new Date().getFullYear()} VIZORA. All rights reserved.</span>
+            <span>
+              © {new Date().getFullYear()} VIZORA. All rights reserved.
+            </span>
             <span>·</span>
-            <span>Custom Portfolio &amp; Business Website Design Studio</span>
+            <span>Creative Web Design Studio</span>
           </div>
 
           <button
             type="button"
             onClick={scrollToTop}
-            className="inline-flex items-center gap-1.5 text-slate-300 hover:text-vizora-yellow transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-vizora-yellow rounded px-2 py-1"
+            className="inline-flex items-center gap-1.5 text-[#F5EBDD] hover:text-[#E3BF82] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C99A52] rounded px-2 py-1"
           >
-            <ArrowUp className="w-3.5 h-3.5 text-vizora-yellow" />
+            <ArrowUp className="w-3.5 h-3.5 text-[#C99A52]" />
             <span>Back to Top</span>
           </button>
         </div>

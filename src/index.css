@@ -4,120 +4,106 @@
 
 @layer base {
   :root {
-    --vizora-blue: #C5A059;
-    --vizora-black: #0B0A09;
-    --vizora-yellow: #E6CFA3;
-    --vizora-purple: #8C6249;
-    --vizora-paper: #F6F2EA;
+    --vizora-ivory: #F5EBDD;
+    --vizora-cream: #FFF9F0;
+    --vizora-beige: #E7D2B8;
+    --vizora-gold: #C99A52;
+    --vizora-charcoal: #211C19;
+    --vizora-brown: #49382B;
+    --vizora-blush: #F3E3DD;
+    --vizora-brand-blue: #174BFF;
+    --vizora-brand-black: #08080D;
+    --vizora-brand-yellow: #FFD629;
+    --vizora-brand-purple: #7027E8;
   }
 
   html {
     scroll-behavior: smooth;
-    background-color: #0B0A09;
+    background-color: #F5EBDD;
   }
 
   body {
-    background-color: #0B0A09;
-    color: #F7F4EE;
-    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    background-color: #F5EBDD;
+    color: #211C19;
+    font-family: 'Manrope', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
     overflow-x: hidden;
   }
 
   section[id] {
-    scroll-margin-top: 5rem;
+    scroll-margin-top: 5.5rem;
   }
 
-  /* Custom Atelier Scrollbar */
+  /* Custom Champagne Atelier Scrollbar */
   ::-webkit-scrollbar {
     width: 8px;
   }
   ::-webkit-scrollbar-track {
-    background: #0B0A09;
+    background: #F5EBDD;
   }
   ::-webkit-scrollbar-thumb {
-    background: rgba(197, 160, 89, 0.45);
+    background: rgba(201, 154, 82, 0.55);
     border-radius: 4px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #C5A059;
+    background: #C99A52;
   }
 }
 
 @layer utilities {
-  .text-blue-purple-gradient {
-    background: linear-gradient(135deg, #D8B56A 0%, #C5A059 42%, #A67B44 76%, #8C6249 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  .bg-champagne-gold-pill {
+    background: linear-gradient(135deg, #ECCF96 0%, #DFB870 48%, #C99A52 100%);
+    box-shadow:
+      0 14px 32px -8px rgba(179, 128, 52, 0.36),
+      0 0 0 1px rgba(168, 120, 48, 0.42),
+      inset 0 1px 1px 0 rgba(255, 251, 242, 0.72);
+    color: #211C19;
   }
 
-  .text-royal-gold-gradient {
-    background: linear-gradient(135deg, #FCFBF8 0%, #E6CFA3 48%, #C5A059 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  .bg-champagne-gold-pill:hover {
+    background: linear-gradient(135deg, #F3D9A4 0%, #E5C27D 48%, #D1A35B 100%);
+    box-shadow:
+      0 18px 38px -8px rgba(179, 128, 52, 0.48),
+      0 0 0 1px rgba(168, 120, 48, 0.58),
+      inset 0 1px 1px 0 rgba(255, 251, 242, 0.85);
+    color: #211C19;
   }
 
-  .bg-blue-purple-gradient {
-    background: linear-gradient(135deg, #C5A059 0%, #9E7B3B 100%);
-  }
-
-  .bg-luxury-obsidian {
+  .bg-champagne-sunlit {
     background:
-      radial-gradient(circle at 16% 12%, rgba(197, 160, 89, 0.13), transparent 40%),
-      radial-gradient(circle at 84% 24%, rgba(140, 98, 73, 0.14), transparent 42%),
-      radial-gradient(circle at 50% 90%, rgba(230, 207, 163, 0.06), transparent 38%),
-      #0B0A09;
+      radial-gradient(circle at 14% 18%, rgba(255, 249, 240, 0.92), transparent 46%),
+      radial-gradient(circle at 86% 22%, rgba(231, 210, 184, 0.55), transparent 48%),
+      radial-gradient(circle at 50% 85%, rgba(201, 154, 82, 0.12), transparent 45%),
+      #F5EBDD;
   }
 
-  .luxury-double-border {
-    box-shadow:
-      0 30px 70px -15px rgba(0, 0, 0, 0.88),
-      0 0 0 1px rgba(230, 207, 163, 0.16),
-      inset 0 1px 0 0 rgba(243, 229, 200, 0.18);
+  .bg-cream-atelier {
+    background:
+      radial-gradient(circle at 80% 15%, rgba(245, 235, 221, 0.7), transparent 45%),
+      radial-gradient(circle at 18% 85%, rgba(231, 210, 184, 0.38), transparent 45%),
+      #FFF9F0;
   }
 
-  .luxury-royal-frame {
-    background: linear-gradient(
-      145deg,
-      rgba(197, 160, 89, 0.14) 0%,
-      rgba(19, 17, 15, 0.96) 38%,
-      rgba(19, 17, 15, 0.98) 65%,
-      rgba(140, 98, 73, 0.15) 100%
-    );
-    box-shadow:
-      0 30px 80px -16px rgba(11, 10, 9, 0.92),
-      0 0 40px -12px rgba(197, 160, 89, 0.22),
-      inset 0 1px 0 0 rgba(230, 207, 163, 0.25);
+  .bg-blush-editorial {
+    background: linear-gradient(145deg, #FFF9F0 0%, #F5E6E0 55%, #EED8D0 100%);
   }
 
-  .editorial-grid-lines {
-    background-size: 72px 72px;
-    background-image: 
-      linear-gradient(to right, rgba(230, 207, 163, 0.032) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(230, 207, 163, 0.032) 1px, transparent 1px);
+  .text-champagne-gold-gradient {
+    background: linear-gradient(135deg, #B58338 0%, #C99A52 50%, #9A6B28 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
-  .editorial-grid-lines-light {
-    background-size: 72px 72px;
-    background-image: 
-      linear-gradient(to right, rgba(18, 16, 14, 0.035) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(18, 16, 14, 0.035) 1px, transparent 1px);
+  .editorial-hairline-grid {
+    background-size: 80px 80px;
+    background-image:
+      linear-gradient(to right, rgba(73, 56, 43, 0.045) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(73, 56, 43, 0.045) 1px, transparent 1px);
   }
-}
 
-/* Ensure Brushed Gold Primary Buttons Have Crisp Obsidian Contrast */
-button.bg-vizora-blue,
-a.bg-vizora-blue {
-  background: linear-gradient(135deg, #DFC184 0%, #C5A059 55%, #A9843E 100%);
-  color: #0B0A09 !important;
-}
-button.bg-vizora-blue:hover,
-a.bg-vizora-blue:hover {
-  background: linear-gradient(135deg, #EAD19C 0%, #D1AD66 55%, #B8924A 100%);
-  color: #0B0A09 !important;
-}
-button.bg-vizora-blue svg,
-a.bg-vizora-blue svg {
-  color: #0B0A09 !important;
+  .arch-frame {
+    border-top-left-radius: 9999px;
+    border-top-right-radius: 9999px;
+  }
 }
 
 /* Reduced motion accessibility */

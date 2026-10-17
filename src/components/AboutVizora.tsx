@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, Check } from 'lucide-react';
 import { InquiryPreselection } from '../types';
 
 interface AboutVizoraProps {
@@ -10,50 +10,53 @@ export const AboutVizora: React.FC<AboutVizoraProps> = ({ onStartProject }) => {
   return (
     <section
       id="about"
-      className="relative py-24 sm:py-32 px-4 sm:px-6 lg:px-8 bg-vizora-paper text-vizora-black editorial-grid-lines-light overflow-hidden border-t border-vizora-paper-border"
+      className="relative py-24 sm:py-32 px-4 sm:px-8 lg:px-12 bg-[#F5EBDD] text-[#211C19] border-t border-[#C99A52]/25 overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-[1380px] mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          {/* Left Column: Client-Focused Studio Story (6 cols) */}
+          {/* Left Column: Studio Philosophy & Narrative (6 cols) */}
           <div className="lg:col-span-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-vizora-purple/10 border border-vizora-purple/25 mb-5">
-              <span className="w-2 h-2 rounded-full bg-vizora-purple" aria-hidden="true" />
-              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-vizora-purple">
-                About Vizora
+            <div className="flex items-center gap-4 mb-4">
+              <span className="text-[11px] font-sans font-bold uppercase tracking-[0.26em] text-[#9A6B28]">
+                07 &nbsp;/&nbsp; STUDIO INTRODUCTION
               </span>
+              <span
+                className="w-16 h-[1px] bg-[#C99A52]"
+                aria-hidden="true"
+              />
             </div>
 
-            <h2 className="font-serif text-3xl sm:text-5xl font-bold tracking-tight text-vizora-black leading-[1.1] mb-6">
-              Built for People With{' '}
-              <span className="text-blue-purple-gradient">Something Worth Showing.</span>
+            <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-[#211C19] leading-[1.08] mb-6">
+              Independent Thinking.{' '}
+              <span className="italic text-[#A8762E]">Intentional Design.</span>
             </h2>
 
-            <p className="text-base sm:text-lg text-vizora-paper-muted leading-relaxed mb-5">
-              Vizora is a creative web design startup founded on a simple belief: talented people
-              and ambitious businesses deserve a digital presence that genuinely reflects the
-              quality of their work.
+            <p className="font-serif text-xl sm:text-2xl text-[#49382B] leading-relaxed mb-5">
+              Vizora transforms talent and business ideas into distinctive
+              digital experiences.
             </p>
 
-            <p className="text-base text-vizora-paper-muted leading-relaxed mb-8">
-              We combine editorial art direction, modern web development, visual storytelling, and
-              practical functionality to create custom websites that are both beautiful to explore
-              and useful for winning real inquiries. Instead of forcing your work into a generic
-              template, we shape every layout around your profession, your visual identity, and the
-              clients you want to reach.
+            <p className="text-sm sm:text-base text-[#49382B] leading-relaxed mb-8">
+              Founded as a dedicated creative web design and development studio,
+              Vizora brings the visual sensitivity of a fashion and art
+              direction house to the modern web. Whether we are crafting a
+              simple editorial portfolio, an immersive 3D WebGL showcase, or a
+              complete salon and small-business website, every decision is made
+              with care, clarity, and artistic restraint.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-9">
               {[
-                'Custom Portfolio & Business Websites',
-                'Editorial Visual Storytelling',
-                'Mobile & Social-Media Ready Layouts',
-                'Clear Inquiry & Booking Pathways',
+                'Bespoke Editorial Art Direction',
+                'Interactive 3D & Motion Capabilities',
+                'Tailored Industry Architecture',
+                'Responsive Mobile-First Engineering',
               ].map((item) => (
                 <div
                   key={item}
-                  className="flex items-center gap-2.5 p-3.5 rounded-xl bg-white border border-vizora-paper-border text-xs sm:text-sm font-semibold text-vizora-black"
+                  className="flex items-center gap-2.5 px-4 py-3.5 rounded-2xl bg-[#FFF9F0] border border-[#C99A52]/35 text-xs sm:text-sm font-medium text-[#211C19]"
                 >
-                  <CheckCircle2 className="w-4 h-4 text-vizora-blue shrink-0" />
+                  <Check className="w-4 h-4 text-[#9A6B28] shrink-0" />
                   <span>{item}</span>
                 </div>
               ))}
@@ -62,58 +65,65 @@ export const AboutVizora: React.FC<AboutVizoraProps> = ({ onStartProject }) => {
             <button
               type="button"
               onClick={() => onStartProject()}
-              className="group inline-flex items-center gap-3 px-7 py-4 rounded-full text-xs sm:text-sm font-bold uppercase tracking-[0.16em] text-white bg-vizora-blue hover:bg-vizora-blue-deep shadow-blue-glow transition-all"
+              className="group inline-flex items-center gap-3.5 px-8 py-4 rounded-full text-xs font-bold uppercase tracking-[0.18em] bg-champagne-gold-pill transition-all duration-300"
             >
-              <span className="w-2 h-2 rounded-full bg-vizora-yellow" aria-hidden="true" />
-              <span>Start Your Website With Vizora</span>
-              <ArrowRight className="w-4 h-4 text-vizora-yellow transition-transform duration-200 group-hover:translate-x-1" />
+              <span>Discover Vizora</span>
+              <ArrowRight className="w-4 h-4 text-[#211C19] transition-transform duration-200 group-hover:translate-x-1" />
             </button>
           </div>
 
-          {/* Right Column: Editorial Composition Featuring the Actual Vizora Logo & Supporting Imagery (6 cols) */}
+          {/* Right Column: Architectural Studio Plaque & Official Brand Mark (6 cols) */}
           <div className="lg:col-span-6">
-            <div className="relative rounded-3xl bg-vizora-black p-6 sm:p-8 text-white shadow-editorial-light border border-vizora-black/15">
-              {/* Top Actual Vizora Logo Showcase Plaque */}
-              <div className="rounded-2xl bg-[#FAF9F5] p-6 sm:p-8 border-2 border-vizora-blue/30 shadow-lg mb-6 flex flex-col items-center text-center">
+            <div className="relative rounded-[32px] bg-[#FFF9F0] p-7 sm:p-10 border border-[#C99A52]/40 shadow-champagne-elevated">
+              {/* Official Vizora Logo Presentation Frame */}
+              <div className="rounded-2xl bg-[#FAF9F5] p-6 sm:p-8 border border-[#C99A52]/35 shadow-sm mb-6 flex flex-col items-center text-center">
                 <img
                   src="/assets/vizora-logo-original.jpeg"
                   alt="Official Vizora Brand Logo"
-                  className="w-full max-w-[340px] h-auto object-contain mx-auto"
+                  className="w-full max-w-[300px] h-auto object-contain mx-auto"
                 />
               </div>
 
-              {/* Supporting Editorial Studio Visuals */}
+              {/* Studio Editorial Photography Pair */}
               <div className="grid grid-cols-2 gap-4 mb-6">
-                <div className="rounded-2xl overflow-hidden border border-white/15 h-40">
+                <div className="rounded-2xl overflow-hidden border border-[#C99A52]/30 h-44">
                   <img
                     src="/images/fashion-stylist.jpg"
-                    alt="Creative styling and lookbook direction"
+                    alt="Creative styling and lookbook direction at Vizora"
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="rounded-2xl overflow-hidden border border-white/15 h-40">
+                <div className="rounded-2xl overflow-hidden border border-[#C99A52]/30 h-44">
                   <img
                     src="/images/small-business.jpg"
-                    alt="Modern small business and studio space"
+                    alt="Architectural studio and business design"
                     className="w-full h-full object-cover"
                   />
                 </div>
               </div>
 
-              {/* Brand Statement Strip */}
-              <div className="p-4 rounded-2xl bg-white/[0.05] border border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              {/* Studio Identity & Selective Brand Accent Note */}
+              <div className="p-5 rounded-2xl bg-[#F5EBDD] border border-[#C99A52]/30 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
-                  <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-vizora-yellow block">
-                    CORE POSITIONING
+                  <span className="text-[10px] font-sans font-bold uppercase tracking-[0.22em] text-[#9A6B28] block mb-1">
+                    VIZORA STUDIO SIGNATURE
                   </span>
-                  <p className="font-serif italic text-sm sm:text-base text-white">
-                    “Vizora transforms talent and business ideas into distinctive digital
-                    experiences.”
+                  <p className="font-serif italic text-base text-[#211C19]">
+                    “Your Vision. Your Website. Your Next Opportunity.”
                   </p>
                 </div>
-                <span className="px-3 py-1 rounded-full bg-vizora-blue text-[10px] font-bold uppercase tracking-widest text-white shrink-0">
-                  Web Design Studio
-                </span>
+
+                {/* Discreet Official Brand Color Signature Dots */}
+                <div
+                  className="flex items-center gap-2 shrink-0"
+                  title="Official Vizora Brand Accents"
+                >
+                  <span className="w-3.5 h-3.5 rounded-full bg-[#C99A52] border border-[#211C19]/20" />
+                  <span className="w-3.5 h-3.5 rounded-full bg-[#174BFF] border border-[#211C19]/20" />
+                  <span className="w-3.5 h-3.5 rounded-full bg-[#7027E8] border border-[#211C19]/20" />
+                  <span className="w-3.5 h-3.5 rounded-full bg-[#FFD629] border border-[#211C19]/20" />
+                  <span className="w-3.5 h-3.5 rounded-full bg-[#08080D] border border-[#211C19]/20" />
+                </div>
               </div>
             </div>
           </div>

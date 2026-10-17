@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronDown, HelpCircle } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import { FAQ_ITEMS } from '../data/vizoraData';
 
 export const FAQSection: React.FC = () => {
@@ -12,30 +12,32 @@ export const FAQSection: React.FC = () => {
   return (
     <section
       id="faq"
-      className="relative py-24 sm:py-32 px-4 sm:px-6 lg:px-8 bg-vizora-black text-white editorial-grid-lines overflow-hidden border-t border-white/10"
+      className="relative py-24 sm:py-32 px-4 sm:px-8 lg:px-12 bg-[#FFF9F0] text-[#211C19] border-t border-[#C99A52]/25 overflow-hidden"
     >
       <div className="max-w-4xl mx-auto relative z-10">
         {/* Header */}
         <div className="text-center mb-14 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.04] border border-white/15 mb-5">
-            <HelpCircle className="w-3.5 h-3.5 text-vizora-yellow" />
-            <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-vizora-yellow">
-              Frequently Asked Questions
+          <div className="inline-flex items-center gap-3 mb-4">
+            <span className="w-10 h-[1px] bg-[#C99A52]" aria-hidden="true" />
+            <span className="text-[11px] font-sans font-bold uppercase tracking-[0.26em] text-[#9A6B28]">
+              FREQUENTLY ASKED QUESTIONS
             </span>
+            <span className="w-10 h-[1px] bg-[#C99A52]" aria-hidden="true" />
           </div>
 
-          <h2 className="font-serif text-3xl sm:text-5xl font-bold tracking-tight text-white leading-[1.1] mb-4">
-            Answers to Common Project Questions.
+          <h2 className="font-serif text-4xl sm:text-5xl font-normal tracking-tight text-[#211C19] leading-[1.1] mb-4">
+            Answers to Common{' '}
+            <span className="italic text-[#A8762E]">Project Questions.</span>
           </h2>
 
-          <p className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto">
-            Everything you need to know about how Vizora designs and builds custom portfolio and
-            business websites.
+          <p className="font-serif text-lg sm:text-xl text-[#49382B] max-w-2xl mx-auto">
+            Everything you need to know about commissioning a custom portfolio,
+            3D showcase, or business website with Vizora.
           </p>
         </div>
 
         {/* Accessible Accordion */}
-        <div className="space-y-3.5">
+        <div className="space-y-4">
           {FAQ_ITEMS.map((item, idx) => {
             const isOpen = openIndex === idx;
             const panelId = `faq-panel-${idx}`;
@@ -44,10 +46,10 @@ export const FAQSection: React.FC = () => {
             return (
               <div
                 key={item.question}
-                className={`rounded-2xl border transition-all duration-300 ${
+                className={`rounded-[24px] border transition-all duration-300 ${
                   isOpen
-                    ? 'bg-vizora-black-elevated border-vizora-blue/60 shadow-editorial-dark'
-                    : 'bg-white/[0.03] border-white/10 hover:border-white/25'
+                    ? 'bg-[#F5EBDD] border-[#C99A52] shadow-champagne-card'
+                    : 'bg-[#F5EBDD]/55 border-[#C99A52]/30 hover:border-[#C99A52]/60'
                 }`}
               >
                 <h3>
@@ -57,16 +59,16 @@ export const FAQSection: React.FC = () => {
                     aria-expanded={isOpen}
                     aria-controls={panelId}
                     onClick={() => toggleItem(idx)}
-                    className="w-full px-6 py-5 text-left flex items-center justify-between gap-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-vizora-yellow rounded-2xl"
+                    className="w-full px-6 sm:px-8 py-5 sm:py-6 text-left flex items-center justify-between gap-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C99A52] rounded-[24px]"
                   >
-                    <span className="font-serif text-lg sm:text-xl font-bold text-white">
+                    <span className="font-serif text-xl sm:text-2xl font-normal text-[#211C19]">
                       {item.question}
                     </span>
                     <span
-                      className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-transform duration-300 ${
+                      className={`w-9 h-9 rounded-full flex items-center justify-center shrink-0 transition-transform duration-300 border ${
                         isOpen
-                          ? 'bg-vizora-blue text-vizora-yellow rotate-180'
-                          : 'bg-white/10 text-slate-300'
+                          ? 'bg-champagne-gold-pill border-[#A67635] text-[#211C19] rotate-180'
+                          : 'bg-[#FFF9F0] border-[#C99A52]/40 text-[#49382B]'
                       }`}
                     >
                       <ChevronDown className="w-4 h-4" />
@@ -79,9 +81,13 @@ export const FAQSection: React.FC = () => {
                   role="region"
                   aria-labelledby={buttonId}
                   hidden={!isOpen}
-                  className={isOpen ? 'px-6 pb-6 pt-1 border-t border-white/10' : 'hidden'}
+                  className={
+                    isOpen
+                      ? 'px-6 sm:px-8 pb-6 pt-2 border-t border-[#C99A52]/25'
+                      : 'hidden'
+                  }
                 >
-                  <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+                  <p className="text-sm sm:text-base text-[#49382B] leading-relaxed">
                     {item.answer}
                   </p>
                 </div>

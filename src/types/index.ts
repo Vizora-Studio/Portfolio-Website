@@ -133,9 +133,19 @@ export interface FAQItem {
   answer: string;
 }
 
+export type PageRouteId =
+  | 'home'
+  | 'services'
+  | 'work'
+  | 'who-we-help'
+  | 'process'
+  | 'about'
+  | 'start-project';
+
 export interface ProjectInquiryPayload {
   fullName: string;
   email: string;
+  businessName: string;
   profession: ProfessionOption | '';
   websiteType: WebsiteTypeOption | '';
   projectGoals: string;

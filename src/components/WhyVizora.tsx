@@ -1,95 +1,79 @@
 import React from 'react';
-import {
-  Sparkles,
-  Palette,
-  LayoutGrid,
-  FileText,
-  Smartphone,
-  CalendarCheck,
-  Wand2,
-  MessageSquare,
-} from 'lucide-react';
 import { WHY_VIZORA_PILLARS } from '../data/vizoraData';
 
 export const WhyVizora: React.FC = () => {
-  const icons = [
-    Sparkles,
-    Palette,
-    LayoutGrid,
-    FileText,
-    Smartphone,
-    CalendarCheck,
-    Wand2,
-    MessageSquare,
-  ];
-
   return (
     <section
       id="why-vizora"
-      className="relative py-24 sm:py-32 px-4 sm:px-6 lg:px-8 bg-vizora-black text-white editorial-grid-lines overflow-hidden"
+      className="relative py-24 sm:py-32 px-4 sm:px-8 lg:px-12 bg-[#F5EBDD] text-[#211C19] border-t border-[#C99A52]/25 overflow-hidden"
     >
-      {/* Ambient Lighting */}
+      {/* Warm Sunlit Architectural Glow */}
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[680px] h-[680px] bg-gradient-to-tr from-vizora-blue/15 via-vizora-purple/15 to-transparent rounded-full blur-[160px] pointer-events-none"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[680px] h-[680px] bg-[#FFF9F0]/75 rounded-full blur-[150px] pointer-events-none"
         aria-hidden="true"
       />
 
-      <div className="max-w-7xl mx-auto relative z-10">
-        {/* Header */}
-        <div className="max-w-3xl mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.04] border border-white/15 mb-5">
-            <span className="w-2 h-2 rounded-full bg-vizora-yellow" aria-hidden="true" />
-            <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-vizora-yellow">
-              Why Vizora
-            </span>
+      <div className="max-w-[1380px] mx-auto relative z-10">
+        {/* Section Header */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end mb-16 sm:mb-20 pb-8 border-b border-[#C99A52]/30">
+          <div className="lg:col-span-7">
+            <div className="flex items-center gap-4 mb-4">
+              <span className="text-[11px] font-sans font-bold uppercase tracking-[0.26em] text-[#9A6B28]">
+                05 &nbsp;/&nbsp; THE STUDIO DIFFERENCE
+              </span>
+              <span
+                className="w-16 h-[1px] bg-[#C99A52]"
+                aria-hidden="true"
+              />
+            </div>
+
+            <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-[#211C19] leading-[1.08]">
+              Your Work Deserves More{' '}
+              <span className="italic text-[#A8762E]">Than a Template.</span>
+            </h2>
           </div>
 
-          <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.08] mb-5">
-            Thoughtful Design.{' '}
-            <span className="text-blue-purple-gradient">Purposeful Websites.</span>
-          </h2>
-
-          <p className="text-base sm:text-lg text-slate-300 leading-relaxed">
-            Every design decision we make serves a clear purpose: presenting your work with
-            distinction and making it effortless for clients, agencies, or customers to inquire.
-          </p>
+          <div className="lg:col-span-5">
+            <p className="font-serif text-lg sm:text-xl text-[#49382B] leading-relaxed">
+              Social feeds scroll past in seconds and generic templates flatten
+              your individuality. We art-direct websites that give your talent a
+              permanent, unmistakable home.
+            </p>
+          </div>
         </div>
 
-        {/* 8 Core Pillars Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {WHY_VIZORA_PILLARS.map((pillar, idx) => {
-            const IconComponent = icons[idx % icons.length];
-            return (
-              <div
-                key={pillar.title}
-                className="group p-6 sm:p-7 rounded-3xl bg-vizora-black-elevated/90 border border-white/10 hover:border-vizora-blue/60 transition-all duration-300 flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-6">
-                    <div className="w-11 h-11 rounded-2xl bg-vizora-blue/15 border border-vizora-blue/35 flex items-center justify-center group-hover:bg-vizora-blue transition-colors">
-                      <IconComponent className="w-5 h-5 text-vizora-yellow" />
-                    </div>
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 px-2.5 py-1 rounded-full bg-white/[0.04]">
-                      {pillar.accentTag}
-                    </span>
-                  </div>
-
-                  <h3 className="font-serif text-xl font-bold text-white mb-2.5 group-hover:text-vizora-yellow transition-colors">
-                    {pillar.title}
-                  </h3>
-
-                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                    {pillar.description}
-                  </p>
+        {/* 4 Core Architectural Principles */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10">
+          {WHY_VIZORA_PILLARS.map((pillar, idx) => (
+            <article
+              key={pillar.title}
+              className="group relative p-8 sm:p-10 rounded-[28px] bg-[#FFF9F0] border border-[#C99A52]/35 shadow-champagne-card hover:shadow-champagne-elevated transition-all duration-300 flex flex-col justify-between"
+            >
+              <div>
+                <div className="flex items-center justify-between gap-4 pb-5 mb-6 border-b border-[#C99A52]/25">
+                  <span className="font-serif text-3xl sm:text-4xl italic text-[#A8762E]">
+                    0{idx + 1}.
+                  </span>
+                  <span className="px-3.5 py-1 rounded-full bg-[#F5EBDD] border border-[#C99A52]/30 text-[10px] font-sans font-bold uppercase tracking-[0.18em] text-[#49382B]">
+                    {pillar.accentTag}
+                  </span>
                 </div>
 
-                <div className="mt-6 pt-3 border-t border-white/[0.07] flex items-center justify-between text-[10px] font-mono text-slate-400">
-                  <span>VIZORA STANDARD</span>
-                  <span className="text-vizora-blue-light">0{idx + 1}</span>
-                </div>
+                <h3 className="font-serif text-2xl sm:text-3xl font-normal text-[#211C19] mb-3.5 group-hover:text-[#9A6B28] transition-colors">
+                  {pillar.title}
+                </h3>
+
+                <p className="text-sm sm:text-base text-[#49382B] leading-relaxed">
+                  {pillar.description}
+                </p>
               </div>
-            );
-          })}
+
+              <div className="mt-8 pt-4 border-t border-[#C99A52]/20 flex items-center justify-between text-[10px] font-sans uppercase tracking-[0.22em] text-[#9A6B28] font-semibold">
+                <span>VIZORA ARCHITECTURAL STANDARD</span>
+                <span>0{idx + 1} / 04</span>
+              </div>
+            </article>
+          ))}
         </div>
       </div>
     </section>

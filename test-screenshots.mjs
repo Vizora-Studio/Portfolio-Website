@@ -43,39 +43,15 @@ async function run() {
   const consoleErrors = [];
   page.on('pageerror', (err) => consoleErrors.push(err.message));
 
-  await page.setViewport({ width: 1440, height: 950 });
+  await page.setViewport({ width: 1440, height: 900 });
 
   console.log('1. Loading homepage http://localhost:5173/...');
-  await page.goto('http://localhost:5173/', { waitUntil: 'domcontentloaded' });
+  await page.goto('http://localhost:5173/', { waitUntil: 'networkidle0' });
   await new Promise((r) => setTimeout(r, 800));
 
   await checkImagesLoaded(page, 'Homepage Hero');
   await checkNoHorizontalOverflow(page, 'Desktop Homepage');
   await saveShot(page, 'qa-01-hero.png');
-
-  // Verify Why Website Matters section
-  const whyWeb = await page.$('#why-website');
-  if (whyWeb) {
-    await whyWeb.scrollIntoView();
-    await new Promise((r) => setTimeout(r, 500));
-    await saveShot(page, 'qa-02-why-website.png');
-  }
-
-  // Verify Services section
-  const services = await page.$('#services');
-  if (services) {
-    await services.scrollIntoView();
-    await new Promise((r) => setTimeout(r, 500));
-    await saveShot(page, 'qa-03-services.png');
-  }
-
-  // Verify Who We Build For section
-  const whoWeHelp = await page.$('#who-we-help');
-  if (whoWeHelp) {
-    await whoWeHelp.scrollIntoView();
-    await new Promise((r) => setTimeout(r, 500));
-    await saveShot(page, 'qa-04-who-we-help.png');
-  }
 
   // Verify Featured Work & Live Client Showcase (Khadija Simple + Khadija 3D)
   const work = await page.$('#work');
@@ -98,12 +74,29 @@ async function run() {
     await saveShot(page, 'qa-05-featured-work.png');
   }
 
-  // Verify Process, Why Vizora, About, FAQ
+  // Verify Services section
+  const services = await page.$('#services');
+  if (services) {
+    await services.scrollIntoView();
+    await new Promise((r) => setTimeout(r, 500));
+    await saveShot(page, 'qa-03-services.png');
+  }
+
+  // Verify Who We Build For section
+  const whoWeHelp = await page.$('#who-we-help');
+  if (whoWeHelp) {
+    await whoWeHelp.scrollIntoView();
+    await new Promise((r) => setTimeout(r, 500));
+    await saveShot(page, 'qa-04-who-we-help.png');
+  }
+
+  // Verify Why Vizora, Process, About, FAQ, Final CTA
   for (const [id, shot] of [
-    ['#process', 'qa-06-process.png'],
     ['#why-vizora', 'qa-07-why-vizora.png'],
+    ['#process', 'qa-06-process.png'],
     ['#about', 'qa-08-about.png'],
     ['#faq', 'qa-09-faq.png'],
+    ['#final-cta', 'qa-02-why-website.png'],
   ]) {
     const el = await page.$(id);
     if (el) {
@@ -132,6 +125,7 @@ async function run() {
     // Fill out form and submit
     await page.type('#inquiry-fullName', 'Camille Laurent');
     await page.type('#inquiry-email', 'camille@atelierlaurent.com');
+    await page.type('#inquiry-businessName', 'Atelier Camille');
     await page.select('#inquiry-profession', 'Model or fashion creator');
     await page.select('#inquiry-websiteType', 'Portfolio website');
     const styleRadios = await page.$$('#inquiry [role="radio"]');
@@ -144,7 +138,7 @@ async function run() {
     );
     await page.type(
       '#inquiry-projectDetails',
-      'Looking for an editorial dark-and-ivory portfolio with comp card measurements and agency inquiry form.'
+      'Looking for an editorial Champagne Ivory portfolio with comp card measurements and agency inquiry form.'
     );
     await saveShot(page, 'qa-10-inquiry-filled.png');
 
