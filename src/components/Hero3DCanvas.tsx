@@ -8,14 +8,22 @@ interface Hero3DCanvasProps {
 export const Hero3DCanvas: React.FC<Hero3DCanvasProps> = ({ reducedMotion = false }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [webGLFailed, setWebGLFailed] = useState(false);
+  const [prefersReduced, setPrefersReduced] = useState(reducedMotion);
 
   useEffect(() => {
-    if (reducedMotion) return;
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setPrefersReduced(reducedMotion || mediaQuery.matches);
+    const handler = (e: MediaQueryListEvent) => setPrefersReduced(reducedMotion || e.matches);
+    mediaQuery.addEventListener('change', handler);
+    return () => mediaQuery.removeEventListener('change', handler);
+  }, [reducedMotion]);
+
+  useEffect(() => {
+    if (prefersReduced) return;
 
     const container = containerRef.current;
     if (!container) return;
 
-    // Check WebGL availability
     const canvas = document.createElement('canvas');
     const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
     if (!gl) {
@@ -27,12 +35,11 @@ export const Hero3DCanvas: React.FC<Hero3DCanvasProps> = ({ reducedMotion = fals
     let width = container.clientWidth || window.innerWidth;
     let height = container.clientHeight || window.innerHeight;
 
-    // Three.js Scene Setup
     const scene = new THREE.Scene();
-    scene.fog = new THREE.FogExp2(0x080B18, 0.0018);
+    scene.fog = new THREE.FogExp2(0x08080d, 0.002);
 
-    const camera = new THREE.PerspectiveCamera(50, width / height, 0.1, 1000);
-    camera.position.z = 24;
+    const camera = new THREE.PerspectiveCamera(48, width / height, 0.1, 1000);
+    camera.position.z = 25;
 
     const renderer = new THREE.WebGLRenderer({
       antialias: true,
@@ -40,81 +47,88 @@ export const Hero3DCanvas: React.FC<Hero3DCanvasProps> = ({ reducedMotion = fals
       powerPreference: 'high-performance',
     });
     renderer.setSize(width, height);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    renderer.setClearColor(0x000000, 0); // Transparent to show dark midnight background
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.75));
+    renderer.setClearColor(0x000000, 0);
     container.appendChild(renderer.domElement);
 
-    // Orbit Ring 1: Champagne Gold Main Celestial Ring
-    const ring1Geo = new THREE.TorusGeometry(8.5, 0.045, 16, 120);
+    // Ring 1: Royal Blue (#174BFF) Architectural Arc
+    const ring1Geo = new THREE.TorusGeometry(9.2, 0.035, 16, 140);
     const ring1Mat = new THREE.MeshBasicMaterial({
-      color: 0xD9A441,
+      color: 0x174bff,
       transparent: true,
-      opacity: 0.75,
+      opacity: 0.55,
     });
     const ring1 = new THREE.Mesh(ring1Geo, ring1Mat);
-    ring1.rotation.x = Math.PI / 3.2;
+    ring1.rotation.x = Math.PI / 3.1;
     ring1.rotation.y = Math.PI / 7;
     scene.add(ring1);
 
-    // Orbit Ring 2: Electric Blue Outer Orbit
-    const ring2Geo = new THREE.TorusGeometry(11.2, 0.03, 16, 140);
+    // Ring 2: Purple (#7027E8) Dimensional Orbit
+    const ring2Geo = new THREE.TorusGeometry(12.0, 0.025, 16, 150);
     const ring2Mat = new THREE.MeshBasicMaterial({
-      color: 0x174BFF,
+      color: 0x7027e8,
       transparent: true,
-      opacity: 0.5,
+      opacity: 0.42,
     });
     const ring2 = new THREE.Mesh(ring2Geo, ring2Mat);
-    ring2.rotation.x = -Math.PI / 4;
+    ring2.rotation.x = -Math.PI / 3.8;
     ring2.rotation.y = Math.PI / 5;
     scene.add(ring2);
 
-    // Orbit Ring 3: Fine Violet Inclined Orbit
-    const ring3Geo = new THREE.TorusGeometry(13.5, 0.02, 16, 160);
+    // Ring 3: Fine Yellow (#FFD629) Accent Trajectory
+    const ring3Geo = new THREE.TorusGeometry(14.2, 0.018, 16, 160);
     const ring3Mat = new THREE.MeshBasicMaterial({
-      color: 0x6D22F5,
+      color: 0xffd629,
       transparent: true,
-      opacity: 0.4,
+      opacity: 0.28,
     });
     const ring3 = new THREE.Mesh(ring3Geo, ring3Mat);
-    ring3.rotation.x = Math.PI / 2.2;
+    ring3.rotation.x = Math.PI / 2.3;
     ring3.rotation.z = Math.PI / 4;
     scene.add(ring3);
 
-    // Orbit Nodes / Star jewels traveling on ring
-    const nodeGeo = new THREE.SphereGeometry(0.18, 16, 16);
-    const nodeMatGold = new THREE.MeshBasicMaterial({ color: 0xF5D075 });
-    const orbitNode1 = new THREE.Mesh(nodeGeo, nodeMatGold);
+    // Traveling Light Nodes
+    const nodeGeo = new THREE.SphereGeometry(0.14, 16, 16);
+    const nodeMatYellow = new THREE.MeshBasicMaterial({ color: 0xffd629 });
+    const orbitNode1 = new THREE.Mesh(nodeGeo, nodeMatYellow);
     scene.add(orbitNode1);
 
-    const nodeMatBlue = new THREE.MeshBasicMaterial({ color: 0x4D7CFF });
+    const nodeMatBlue = new THREE.MeshBasicMaterial({ color: 0x174bff });
     const orbitNode2 = new THREE.Mesh(nodeGeo, nodeMatBlue);
     scene.add(orbitNode2);
 
-    // Particle Field: Gold, Blue, Violet stardust
-    const particleCount = 450;
+    // Controlled Particle Field (220 particles — conservative & refined)
+    const particleCount = 220;
     const particleGeometry = new THREE.BufferGeometry();
     const positions = new Float32Array(particleCount * 3);
     const colors = new Float32Array(particleCount * 3);
 
     const colorPalette = [
-      new THREE.Color(0xD9A441), // Champagne Gold
-      new THREE.Color(0xF5D075), // Light Gold
-      new THREE.Color(0x174BFF), // Electric Blue
-      new THREE.Color(0x6D22F5), // Rich Violet
-      new THREE.Color(0xFFFFFF), // Diamond White
+      new THREE.Color(0x174bff), // Royal Blue
+      new THREE.Color(0x7027e8), // Purple
+      new THREE.Color(0xffd629), // Yellow accent
+      new THREE.Color(0xffffff), // Crisp White
     ];
 
     for (let i = 0; i < particleCount; i++) {
-      // Distribute in a spherical cylinder volume around center
-      const radius = 6 + Math.random() * 22;
+      const radius = 7 + Math.random() * 20;
       const theta = Math.random() * Math.PI * 2;
       const phi = (Math.random() - 0.5) * Math.PI * 0.85;
 
       positions[i * 3] = radius * Math.cos(phi) * Math.sin(theta);
       positions[i * 3 + 1] = radius * Math.sin(phi);
-      positions[i * 3 + 2] = radius * Math.cos(phi) * Math.cos(theta) - 2;
+      positions[i * 3 + 2] = radius * Math.cos(phi) * Math.cos(theta) - 3;
 
-      const c = colorPalette[Math.floor(Math.random() * colorPalette.length)];
+      // Weight toward Royal Blue & Purple, selective Yellow
+      const pick = Math.random();
+      const c =
+        pick < 0.45
+          ? colorPalette[0]
+          : pick < 0.8
+          ? colorPalette[1]
+          : pick < 0.92
+          ? colorPalette[2]
+          : colorPalette[3];
       colors[i * 3] = c.r;
       colors[i * 3 + 1] = c.g;
       colors[i * 3 + 2] = c.b;
@@ -124,33 +138,16 @@ export const Hero3DCanvas: React.FC<Hero3DCanvasProps> = ({ reducedMotion = fals
     particleGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 
     const particleMaterial = new THREE.PointsMaterial({
-      size: 0.16,
+      size: 0.13,
       vertexColors: true,
       transparent: true,
-      opacity: 0.85,
+      opacity: 0.72,
       blending: THREE.AdditiveBlending,
     });
 
     const particles = new THREE.Points(particleGeometry, particleMaterial);
     scene.add(particles);
 
-    // Lights
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
-    scene.add(ambientLight);
-
-    const blueLight = new THREE.PointLight(0x174BFF, 2, 40);
-    blueLight.position.set(-10, 8, 10);
-    scene.add(blueLight);
-
-    const goldLight = new THREE.PointLight(0xD9A441, 2.5, 40);
-    goldLight.position.set(10, -6, 8);
-    scene.add(goldLight);
-
-    const violetLight = new THREE.PointLight(0x6D22F5, 1.8, 35);
-    violetLight.position.set(0, 10, -5);
-    scene.add(violetLight);
-
-    // Mouse Interaction
     let mouseX = 0;
     let mouseY = 0;
     let targetX = 0;
@@ -159,20 +156,18 @@ export const Hero3DCanvas: React.FC<Hero3DCanvasProps> = ({ reducedMotion = fals
     const handleMouseMove = (event: MouseEvent) => {
       const windowHalfX = window.innerWidth / 2;
       const windowHalfY = window.innerHeight / 2;
-      mouseX = (event.clientX - windowHalfX) * 0.0006;
-      mouseY = (event.clientY - windowHalfY) * 0.0006;
+      mouseX = (event.clientX - windowHalfX) * 0.00045;
+      mouseY = (event.clientY - windowHalfY) * 0.00045;
     };
 
     window.addEventListener('mousemove', handleMouseMove, { passive: true });
 
-    // Scroll Interaction
     let scrollY = 0;
     const handleScroll = () => {
       scrollY = window.scrollY;
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
 
-    // Resize Handler
     const handleResize = () => {
       if (!container) return;
       width = container.clientWidth || window.innerWidth;
@@ -183,52 +178,43 @@ export const Hero3DCanvas: React.FC<Hero3DCanvasProps> = ({ reducedMotion = fals
     };
     window.addEventListener('resize', handleResize);
 
-    // Animation Loop
-    let clock = new THREE.Clock();
+    const clock = new THREE.Clock();
 
     const animate = () => {
       animationFrameId = requestAnimationFrame(animate);
       const elapsedTime = clock.getElapsedTime();
 
-      // Smooth mouse damping
-      targetX += (mouseX - targetX) * 0.05;
-      targetY += (mouseY - targetY) * 0.05;
+      targetX += (mouseX - targetX) * 0.04;
+      targetY += (mouseY - targetY) * 0.04;
 
-      camera.position.x = targetX * 12;
-      camera.position.y = -targetY * 12;
+      camera.position.x = targetX * 10;
+      camera.position.y = -targetY * 10;
       camera.lookAt(0, 0, 0);
 
-      // Rotate orbit rings at harmonious astronomical intervals
-      ring1.rotation.z = elapsedTime * 0.12;
-      ring1.rotation.x = Math.PI / 3.2 + Math.sin(elapsedTime * 0.3) * 0.05;
+      ring1.rotation.z = elapsedTime * 0.09;
+      ring1.rotation.x = Math.PI / 3.1 + Math.sin(elapsedTime * 0.25) * 0.04;
 
-      ring2.rotation.z = -elapsedTime * 0.08;
-      ring2.rotation.y = Math.PI / 5 + Math.cos(elapsedTime * 0.2) * 0.04;
+      ring2.rotation.z = -elapsedTime * 0.06;
+      ring2.rotation.y = Math.PI / 5 + Math.cos(elapsedTime * 0.2) * 0.03;
 
-      ring3.rotation.y = elapsedTime * 0.05;
+      ring3.rotation.y = elapsedTime * 0.04;
 
-      // Position orbit jewel nodes
-      const angle1 = elapsedTime * 0.4;
+      const angle1 = elapsedTime * 0.32;
       orbitNode1.position.set(
-        Math.cos(angle1) * 8.5,
-        Math.sin(angle1) * 8.5 * Math.cos(ring1.rotation.x),
-        Math.sin(angle1) * 8.5 * Math.sin(ring1.rotation.x)
+        Math.cos(angle1) * 9.2,
+        Math.sin(angle1) * 9.2 * Math.cos(ring1.rotation.x),
+        Math.sin(angle1) * 9.2 * Math.sin(ring1.rotation.x)
       );
 
-      const angle2 = -elapsedTime * 0.28 + Math.PI;
+      const angle2 = -elapsedTime * 0.22 + Math.PI;
       orbitNode2.position.set(
-        Math.cos(angle2) * 11.2 * Math.cos(ring2.rotation.y),
-        Math.sin(angle2) * 11.2 * Math.sin(ring2.rotation.x),
-        Math.sin(angle2) * 11.2 * Math.cos(ring2.rotation.x)
+        Math.cos(angle2) * 12.0 * Math.cos(ring2.rotation.y),
+        Math.sin(angle2) * 12.0 * Math.sin(ring2.rotation.x),
+        Math.sin(angle2) * 12.0 * Math.cos(ring2.rotation.x)
       );
 
-      // Rotate particle field slowly and respond to scroll
-      particles.rotation.y = elapsedTime * 0.03 + scrollY * 0.0004;
-      particles.rotation.x = elapsedTime * 0.015;
-
-      // Pulse point lights subtly
-      goldLight.intensity = 2.2 + Math.sin(elapsedTime * 1.5) * 0.5;
-      blueLight.intensity = 1.8 + Math.cos(elapsedTime * 1.2) * 0.4;
+      particles.rotation.y = elapsedTime * 0.02 + scrollY * 0.0003;
+      particles.rotation.x = elapsedTime * 0.01;
 
       renderer.render(scene, camera);
     };
@@ -252,21 +238,19 @@ export const Hero3DCanvas: React.FC<Hero3DCanvasProps> = ({ reducedMotion = fals
       ring3Geo.dispose();
       ring3Mat.dispose();
       nodeGeo.dispose();
-      nodeMatGold.dispose();
+      nodeMatYellow.dispose();
       nodeMatBlue.dispose();
       particleGeometry.dispose();
       particleMaterial.dispose();
     };
-  }, [reducedMotion]);
+  }, [prefersReduced]);
 
-  if (reducedMotion || webGLFailed) {
+  if (prefersReduced || webGLFailed) {
     return (
       <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
-        {/* CSS Fallback Orbit & Cosmic Glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full border border-vizora-gold/30 animate-spin-slow pointer-events-none" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[760px] h-[760px] rounded-full border border-vizora-blue/20 animate-spin-reverse pointer-events-none" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] rounded-full border border-vizora-violet/15 pointer-events-none" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[480px] h-[480px] bg-gradient-to-tr from-vizora-blue/20 via-vizora-violet/20 to-vizora-gold/20 rounded-full blur-[80px] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[560px] h-[560px] rounded-full border border-vizora-blue/25 pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[740px] h-[740px] rounded-full border border-vizora-purple/20 pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] rounded-full border border-vizora-yellow/15 pointer-events-none" />
       </div>
     );
   }
