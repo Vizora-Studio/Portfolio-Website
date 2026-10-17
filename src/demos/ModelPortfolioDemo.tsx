@@ -86,7 +86,7 @@ export const ModelPortfolioDemo: React.FC<ModelPortfolioDemoProps> = ({
       : portfolioWorks.filter((w) => w.category === galleryFilter);
 
   return (
-    <div className="min-h-screen bg-[#07070C] text-[#F7F6F2] font-sans">
+    <div className="min-h-screen bg-[#0A0908] text-[#F7F6F2] font-sans">
       <DemoToolbar
         currentDemoId="model-portfolio"
         onBackToStudio={onBackToStudio}
@@ -95,7 +95,7 @@ export const ModelPortfolioDemo: React.FC<ModelPortfolioDemoProps> = ({
       />
 
       {/* Demo Internal Editorial Header */}
-      <header className="border-b border-white/10 px-4 sm:px-8 py-6 bg-[#07070C]">
+      <header className="border-b border-white/10 px-4 sm:px-8 py-6 bg-[#0A0908]">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div>
             <span className="text-[10px] font-mono uppercase tracking-[0.28em] text-vizora-yellow block">
@@ -117,7 +117,7 @@ export const ModelPortfolioDemo: React.FC<ModelPortfolioDemoProps> = ({
             </a>
             <a
               href="#demo-inquire"
-              className="px-4 py-2 rounded-full bg-vizora-blue text-white font-semibold hover:bg-vizora-blue-light transition-colors"
+              className="px-4 py-2 rounded-full bg-vizora-blue text-vizora-black font-bold hover:bg-vizora-blue-light transition-colors"
             >
               Casting &amp; Bookings
             </a>
@@ -146,7 +146,7 @@ export const ModelPortfolioDemo: React.FC<ModelPortfolioDemoProps> = ({
             {/* Interactive Digital Comp Card Module */}
             <div
               id="demo-compcard"
-              className="p-6 rounded-2xl bg-[#10101B] border border-white/15 mb-8"
+              className="p-6 rounded-2xl bg-[#13110F] border border-white/15 mb-8"
             >
               <div className="flex items-center justify-between gap-2 pb-4 mb-4 border-b border-white/10">
                 <div className="flex items-center gap-2">
@@ -252,7 +252,7 @@ export const ModelPortfolioDemo: React.FC<ModelPortfolioDemoProps> = ({
       </section>
 
       {/* Selected Campaign & Editorial Gallery */}
-      <section id="demo-gallery" className="py-20 px-4 sm:px-8 bg-[#0C0C15] border-y border-white/10">
+      <section id="demo-gallery" className="py-20 px-4 sm:px-8 bg-[#0E0C0A] border-y border-white/10">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
             <div>
@@ -272,7 +272,7 @@ export const ModelPortfolioDemo: React.FC<ModelPortfolioDemoProps> = ({
                   onClick={() => setGalleryFilter(cat)}
                   className={`px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-widest transition-colors ${
                     galleryFilter === cat
-                      ? 'bg-vizora-blue text-white'
+                      ? 'bg-vizora-blue text-vizora-black'
                       : 'bg-white/[0.05] text-slate-300 hover:bg-white/10'
                   }`}
                 >
@@ -286,7 +286,7 @@ export const ModelPortfolioDemo: React.FC<ModelPortfolioDemoProps> = ({
             {filteredWorks.map((item) => (
               <div
                 key={item.id}
-                className="group rounded-2xl overflow-hidden bg-[#121220] border border-white/10 flex flex-col justify-between"
+                className="group rounded-2xl overflow-hidden bg-[#15120F] border border-white/10 flex flex-col justify-between"
               >
                 <div className="relative h-80 sm:h-96 overflow-hidden">
                   <img
@@ -346,7 +346,7 @@ export const ModelPortfolioDemo: React.FC<ModelPortfolioDemoProps> = ({
 
           <div
             id="demo-inquire"
-            className="lg:col-span-7 p-8 rounded-3xl bg-[#10101C] border border-vizora-blue/40"
+            className="lg:col-span-7 p-8 rounded-3xl bg-[#13110F] border border-vizora-blue/40"
           >
             <span className="text-[10px] font-mono uppercase tracking-[0.22em] text-vizora-blue-light block mb-1">
               SAMPLE CASTING &amp; COLLABORATION INQUIRY MODULE

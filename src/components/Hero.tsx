@@ -102,11 +102,11 @@ export const Hero: React.FC<HeroProps> = ({
               <button
                 type="button"
                 onClick={() => onStartProject()}
-                className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full text-xs sm:text-sm font-bold uppercase tracking-[0.16em] text-white bg-gradient-to-r from-vizora-blue via-vizora-blue to-vizora-purple hover:from-vizora-blue-light hover:to-vizora-purple-light shadow-blue-glow border border-white/20 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-vizora-yellow"
+                className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full text-xs sm:text-sm font-bold uppercase tracking-[0.16em] text-vizora-black bg-vizora-blue hover:bg-vizora-blue-light shadow-blue-glow border border-vizora-yellow/40 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-vizora-yellow"
               >
-                <span className="w-2 h-2 rounded-full bg-vizora-yellow" aria-hidden="true" />
+                <span className="w-2 h-2 rounded-full bg-vizora-black" aria-hidden="true" />
                 <span>Let&apos;s Build Your Website</span>
-                <ArrowRight className="w-4 h-4 text-vizora-yellow transition-transform duration-300 group-hover:translate-x-1" />
+                <ArrowRight className="w-4 h-4 text-vizora-black transition-transform duration-300 group-hover:translate-x-1" />
               </button>
 
               <button
@@ -120,7 +120,7 @@ export const Hero: React.FC<HeroProps> = ({
             </div>
 
             {/* Direct Live Client Proof Strip */}
-            <div className="w-full p-3.5 rounded-2xl bg-vizora-black-elevated/90 border border-white/12 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div className="w-full p-3.5 rounded-2xl bg-vizora-black-elevated/95 border border-white/12 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <div className="flex items-center gap-2.5">
                 <span className="px-2.5 py-1 rounded-full bg-vizora-yellow/15 border border-vizora-yellow/40 text-[10px] font-mono font-bold uppercase tracking-wider text-vizora-yellow shrink-0">
                   LIVE CLIENT WORK
@@ -134,7 +134,7 @@ export const Hero: React.FC<HeroProps> = ({
                   href="https://khadija-portfolio-og.vercel.app/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-vizora-blue/25 hover:bg-vizora-blue border border-vizora-blue/50 text-[11px] font-semibold text-white transition-colors"
+                  className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-white/[0.06] hover:bg-vizora-blue hover:text-vizora-black border border-vizora-blue/45 text-[11px] font-semibold text-white transition-colors"
                 >
                   <span>1. Simple Portfolio</span>
                   <ArrowUpRight className="w-3 h-3 text-vizora-yellow" />
@@ -156,7 +156,7 @@ export const Hero: React.FC<HeroProps> = ({
           <div className="lg:col-span-6 relative">
             {/* Ambient Backlight Behind Previews */}
             <div
-              className="absolute inset-2 bg-gradient-to-tr from-vizora-blue/30 via-vizora-purple/30 to-vizora-yellow/10 rounded-3xl blur-2xl pointer-events-none"
+              className="absolute inset-2 bg-gradient-to-tr from-vizora-blue/25 via-vizora-purple/25 to-vizora-yellow/10 rounded-3xl blur-2xl pointer-events-none"
               aria-hidden="true"
             />
 
@@ -168,11 +168,11 @@ export const Hero: React.FC<HeroProps> = ({
                   onClick={() => setActivePreview('khadija-3d')}
                   className={`px-2.5 py-2 rounded-xl text-[10px] sm:text-[11px] font-bold tracking-wider uppercase transition-all flex items-center justify-center gap-1.5 ${
                     activePreview === 'khadija-3d'
-                      ? 'bg-gradient-to-r from-vizora-purple to-vizora-blue text-white shadow-purple-glow border border-vizora-yellow/50'
+                      ? 'bg-vizora-blue text-vizora-black shadow-blue-glow border border-vizora-yellow/50'
                       : 'text-slate-300 hover:text-white hover:bg-white/5'
                   }`}
                 >
-                  <Box className="w-3 h-3 text-vizora-yellow shrink-0" />
+                  <Box className="w-3 h-3 shrink-0" />
                   <span className="truncate">Khadija 3D</span>
                 </button>
                 <button
@@ -180,11 +180,11 @@ export const Hero: React.FC<HeroProps> = ({
                   onClick={() => setActivePreview('khadija-classic')}
                   className={`px-2.5 py-2 rounded-xl text-[10px] sm:text-[11px] font-bold tracking-wider uppercase transition-all flex items-center justify-center gap-1.5 ${
                     activePreview === 'khadija-classic'
-                      ? 'bg-vizora-blue text-white shadow-blue-glow border border-vizora-yellow/50'
+                      ? 'bg-vizora-blue text-vizora-black shadow-blue-glow border border-vizora-yellow/50'
                       : 'text-slate-300 hover:text-white hover:bg-white/5'
                   }`}
                 >
-                  <Layers className="w-3 h-3 text-vizora-yellow shrink-0" />
+                  <Layers className="w-3 h-3 shrink-0" />
                   <span className="truncate">Khadija Simple</span>
                 </button>
                 <button
@@ -203,7 +203,7 @@ export const Hero: React.FC<HeroProps> = ({
                   onClick={() => setActivePreview('business')}
                   className={`px-2.5 py-2 rounded-xl text-[10px] sm:text-[11px] font-semibold tracking-wider uppercase transition-all ${
                     activePreview === 'business'
-                      ? 'bg-vizora-blue text-white shadow-sm'
+                      ? 'bg-vizora-blue text-vizora-black shadow-sm'
                       : 'text-slate-300 hover:text-white hover:bg-white/5'
                   }`}
                 >
@@ -216,7 +216,7 @@ export const Hero: React.FC<HeroProps> = ({
             <div className="relative pt-1 pb-6">
               <div className="relative rounded-2xl overflow-hidden bg-vizora-black-card border border-vizora-yellow/35 transition-all duration-500 luxury-double-border">
                 {/* Browser Top Bar */}
-                <div className="bg-[#0B0B14] px-4 py-2.5 border-b border-white/12 flex items-center justify-between gap-2">
+                <div className="bg-[#0F0D0B] px-4 py-2.5 border-b border-white/12 flex items-center justify-between gap-2">
                   <div className="flex items-center gap-1.5">
                     <span className="w-2.5 h-2.5 rounded-full bg-vizora-blue" />
                     <span className="w-2.5 h-2.5 rounded-full bg-vizora-purple" />
@@ -262,7 +262,7 @@ export const Hero: React.FC<HeroProps> = ({
 
                 {/* PREVIEW 1: Khadija 3D Portfolio (Live Client Website) */}
                 {activePreview === 'khadija-3d' && (
-                  <div className="bg-[#090910] text-white">
+                  <div className="bg-[#0C0B09] text-white">
                     <a
                       href="https://khadija-3d-portfolio.vercel.app/"
                       target="_blank"
@@ -275,7 +275,7 @@ export const Hero: React.FC<HeroProps> = ({
                         className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-vizora-black via-transparent to-transparent" />
-                      <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-vizora-purple/90 backdrop-blur-md border border-vizora-yellow/40 text-[10px] font-bold uppercase tracking-widest text-white flex items-center gap-1.5">
+                      <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-vizora-black/90 backdrop-blur-md border border-vizora-yellow/50 text-[10px] font-bold uppercase tracking-widest text-vizora-yellow flex items-center gap-1.5">
                         <Sparkles className="w-3 h-3 text-vizora-yellow" />
                         <span>Live Client Flagship · 3D &amp; Motion</span>
                       </div>
@@ -288,9 +288,9 @@ export const Hero: React.FC<HeroProps> = ({
                             360° 3D Orbit Carousel · Motion Reels · Couture Series
                           </span>
                         </div>
-                        <span className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-vizora-blue text-white text-[11px] font-bold uppercase tracking-wider shrink-0">
+                        <span className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-vizora-blue text-vizora-black text-[11px] font-bold uppercase tracking-wider shrink-0">
                           <span>Launch Site</span>
-                          <ArrowUpRight className="w-3.5 h-3.5 text-vizora-yellow" />
+                          <ArrowUpRight className="w-3.5 h-3.5" />
                         </span>
                       </div>
                     </a>
@@ -299,7 +299,7 @@ export const Hero: React.FC<HeroProps> = ({
 
                 {/* PREVIEW 2: Khadija Simple Editorial Portfolio (Live Client Website) */}
                 {activePreview === 'khadija-classic' && (
-                  <div className="bg-[#090910] text-white">
+                  <div className="bg-[#0C0B09] text-white">
                     <a
                       href="https://khadija-portfolio-og.vercel.app/"
                       target="_blank"
@@ -312,7 +312,7 @@ export const Hero: React.FC<HeroProps> = ({
                         className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-vizora-black via-transparent to-transparent" />
-                      <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-vizora-blue/90 backdrop-blur-md border border-vizora-yellow/40 text-[10px] font-bold uppercase tracking-widest text-white flex items-center gap-1.5">
+                      <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-vizora-black/90 backdrop-blur-md border border-vizora-yellow/50 text-[10px] font-bold uppercase tracking-widest text-vizora-yellow flex items-center gap-1.5">
                         <Sparkles className="w-3 h-3 text-vizora-yellow" />
                         <span>Live Client Website · Simple Editorial</span>
                       </div>
@@ -325,9 +325,9 @@ export const Hero: React.FC<HeroProps> = ({
                             Editorial Bio · Selected Work · Bridal &amp; Fashion Bookings
                           </span>
                         </div>
-                        <span className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-vizora-blue text-white text-[11px] font-bold uppercase tracking-wider shrink-0">
+                        <span className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-vizora-blue text-vizora-black text-[11px] font-bold uppercase tracking-wider shrink-0">
                           <span>Launch Site</span>
-                          <ArrowUpRight className="w-3.5 h-3.5 text-vizora-yellow" />
+                          <ArrowUpRight className="w-3.5 h-3.5" />
                         </span>
                       </div>
                     </a>
@@ -392,7 +392,7 @@ export const Hero: React.FC<HeroProps> = ({
 
                 {/* PREVIEW 4: Business Website Concept Demo */}
                 {activePreview === 'business' && (
-                  <div className="grid grid-cols-12 bg-[#11111B] text-white">
+                  <div className="grid grid-cols-12 bg-[#141210] text-white">
                     <div className="col-span-7 p-5 sm:p-6 flex flex-col justify-between border-r border-white/10">
                       <div>
                         <div className="flex items-center justify-between text-[10px] uppercase tracking-[0.22em] text-slate-400 mb-4 pb-2 border-b border-white/10">

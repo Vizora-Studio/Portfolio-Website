@@ -230,7 +230,7 @@ export const ProjectInquiryForm: React.FC<ProjectInquiryFormProps> = ({ preselec
               <p className="text-sm text-slate-200 leading-relaxed">{submissionResult.message}</p>
 
               {/* Formatted Brief Preview */}
-              <div className="rounded-2xl bg-[#0D0D16] border border-white/10 p-4 sm:p-5">
+              <div className="rounded-2xl bg-[#0F0D0B] border border-white/10 p-4 sm:p-5">
                 <div className="flex items-center justify-between mb-2 pb-2 border-b border-white/10">
                   <span className="text-[10px] font-mono uppercase tracking-widest text-vizora-yellow">
                     Structured Project Inquiry Summary

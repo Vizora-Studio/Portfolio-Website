@@ -103,13 +103,13 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({
                   key={clientSite.id}
                   className={`group relative rounded-3xl overflow-hidden transition-all duration-500 flex flex-col justify-between luxury-double-border ${
                     is3D
-                      ? 'bg-gradient-to-b from-[#151129] via-[#0E0E18] to-[#0A0A12] border-2 border-vizora-purple/60 hover:border-vizora-yellow'
-                      : 'bg-gradient-to-b from-[#0E162B] via-[#0E0E18] to-[#0A0A12] border-2 border-vizora-blue/60 hover:border-vizora-yellow'
+                      ? 'bg-gradient-to-b from-[#1A1511] via-[#12100E] to-[#0B0A09] border border-vizora-yellow/45 hover:border-vizora-yellow'
+                      : 'bg-gradient-to-b from-[#161310] via-[#110F0D] to-[#0B0A09] border border-vizora-blue/45 hover:border-vizora-yellow'
                   }`}
                 >
                   {/* Top Luxury Browser Frame */}
                   <div>
-                    <div className="bg-[#08080F] px-4 py-3 border-b border-white/12 flex items-center justify-between gap-2">
+                    <div className="bg-[#0B0A09] px-4 py-3 border-b border-white/12 flex items-center justify-between gap-2">
                       <div className="flex items-center gap-1.5">
                         <span className="w-2.5 h-2.5 rounded-full bg-vizora-blue" />
                         <span className="w-2.5 h-2.5 rounded-full bg-vizora-purple" />
@@ -132,7 +132,7 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({
                         className={`px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold shrink-0 ${
                           is3D
                             ? 'bg-vizora-purple/30 border border-vizora-yellow/50 text-vizora-yellow'
-                            : 'bg-vizora-blue/30 border border-vizora-yellow/50 text-vizora-yellow'
+                            : 'bg-vizora-blue/25 border border-vizora-yellow/50 text-vizora-yellow'
                         }`}
                       >
                         {idx === 0 ? 'SIMPLE PORTFOLIO' : '3D PORTFOLIO'}
@@ -151,11 +151,7 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({
                       {/* Top Edition Ribbon */}
                       <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between gap-2">
                         <span
-                          className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full backdrop-blur-md text-[10px] font-bold uppercase tracking-[0.18em] text-white border ${
-                            is3D
-                              ? 'bg-vizora-purple/90 border-vizora-yellow/50'
-                              : 'bg-vizora-blue/90 border-vizora-yellow/50'
-                          }`}
+                          className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-vizora-black/90 backdrop-blur-md text-[10px] font-bold uppercase tracking-[0.18em] text-vizora-yellow border border-vizora-yellow/50"
                         >
                           {is3D ? (
                             <Box className="w-3.5 h-3.5 text-vizora-yellow" />
@@ -252,14 +248,10 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({
                           href={clientSite.liveUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className={`flex-1 inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full text-xs font-bold uppercase tracking-[0.15em] text-white transition-all shadow-blue-glow focus:outline-none focus-visible:ring-2 focus-visible:ring-vizora-yellow ${
-                            is3D
-                              ? 'bg-gradient-to-r from-vizora-purple to-vizora-blue hover:from-vizora-purple-light hover:to-vizora-blue-light'
-                              : 'bg-vizora-blue hover:bg-vizora-blue-light'
-                          }`}
+                          className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full text-xs font-bold uppercase tracking-[0.15em] text-vizora-black bg-vizora-blue hover:bg-vizora-blue-light transition-all shadow-blue-glow focus:outline-none focus-visible:ring-2 focus-visible:ring-vizora-yellow"
                         >
                           <span>Launch Live Website</span>
-                          <ArrowUpRight className="w-4 h-4 text-vizora-yellow" />
+                          <ArrowUpRight className="w-4 h-4 text-vizora-black" />
                         </a>
 
                         <button
@@ -272,7 +264,7 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({
                               projectContext: `I want a website like ${clientSite.projectTitle} (${clientSite.liveUrl})`,
                             })
                           }
-                          className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full text-xs font-bold uppercase tracking-[0.14em] text-vizora-black bg-vizora-yellow hover:bg-vizora-yellow-soft transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                          className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full text-xs font-bold uppercase tracking-[0.14em] text-white bg-white/[0.08] hover:bg-vizora-yellow hover:text-vizora-black border border-vizora-yellow/45 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
                         >
                           <span>{is3D ? 'Build My 3D Website' : 'Build My Simple Portfolio'}</span>
                           <ArrowRight className="w-3.5 h-3.5" />
@@ -313,7 +305,7 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({
                       'Interested in a Simple Editorial Portfolio like https://khadija-portfolio-og.vercel.app/',
                   })
                 }
-                className="px-5 py-3 rounded-full text-xs font-bold uppercase tracking-[0.14em] text-white bg-vizora-blue hover:bg-vizora-blue-light transition-colors"
+                className="px-5 py-3 rounded-full text-xs font-bold uppercase tracking-[0.14em] text-vizora-black bg-vizora-blue hover:bg-vizora-blue-light transition-colors"
               >
                 Choose Simple Portfolio
               </button>
@@ -361,7 +353,7 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({
               >
                 {/* Top Browser Window Preview */}
                 <div>
-                  <div className="bg-[#0B0B14] px-4 py-3 border-b border-white/10 flex items-center justify-between gap-2">
+                  <div className="bg-[#0B0A09] px-4 py-3 border-b border-white/10 flex items-center justify-between gap-2">
                     <div className="flex items-center gap-1.5">
                       <span className="w-2.5 h-2.5 rounded-full bg-vizora-blue" />
                       <span className="w-2.5 h-2.5 rounded-full bg-vizora-purple" />
@@ -470,10 +462,10 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({
                         e.preventDefault();
                         onOpenDemo(demo.id);
                       }}
-                      className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full text-xs font-bold uppercase tracking-[0.15em] text-white bg-vizora-blue hover:bg-vizora-blue-light shadow-blue-glow transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-vizora-yellow"
+                      className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full text-xs font-bold uppercase tracking-[0.15em] text-vizora-black bg-vizora-blue hover:bg-vizora-blue-light shadow-blue-glow transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-vizora-yellow"
                     >
                       <span>View Demo</span>
-                      <ArrowUpRight className="w-4 h-4 text-vizora-yellow" />
+                      <ArrowUpRight className="w-4 h-4 text-vizora-black" />
                     </a>
 
                     <button
@@ -508,7 +500,7 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({
           className="fixed inset-0 z-50 bg-vizora-black/90 backdrop-blur-xl p-3 sm:p-6 flex flex-col"
         >
           <div className="max-w-7xl w-full mx-auto bg-vizora-black-elevated border border-vizora-yellow/40 rounded-3xl overflow-hidden flex flex-col flex-1 shadow-2xl">
-            <div className="px-4 sm:px-6 py-3.5 bg-[#090912] border-b border-white/15 flex flex-wrap items-center justify-between gap-3">
+            <div className="px-4 sm:px-6 py-3.5 bg-[#0B0A09] border-b border-white/15 flex flex-wrap items-center justify-between gap-3">
               <div className="flex items-center gap-3">
                 <span className="px-2.5 py-1 rounded-full bg-vizora-yellow text-vizora-black text-[10px] font-bold uppercase tracking-widest">
                   Live Client Website
@@ -526,10 +518,10 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({
                   href={liveModalProject.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-vizora-blue hover:bg-vizora-blue-light text-white text-xs font-bold uppercase tracking-wider transition-colors"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-vizora-blue hover:bg-vizora-blue-light text-vizora-black text-xs font-bold uppercase tracking-wider transition-colors"
                 >
                   <span>Open Full Screen in New Tab</span>
-                  <ExternalLink className="w-3.5 h-3.5 text-vizora-yellow" />
+                  <ExternalLink className="w-3.5 h-3.5 text-vizora-black" />
                 </a>
                 <button
                   type="button"

@@ -233,7 +233,7 @@ export const MakeupArtistDemo: React.FC<MakeupArtistDemoProps> = ({
             </div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center rounded-3xl bg-[#12121E] border border-white/12 p-6 sm:p-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center rounded-3xl bg-[#141210] border border-white/12 p-6 sm:p-10">
             <div className="lg:col-span-5 rounded-2xl overflow-hidden border border-white/15">
               <img
                 src={activeTrans.image}

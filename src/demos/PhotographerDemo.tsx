@@ -77,7 +77,7 @@ export const PhotographerDemo: React.FC<PhotographerDemoProps> = ({
       : projects.filter((p) => p.category === selectedCategory);
 
   return (
-    <div className="min-h-screen bg-[#09090D] text-white font-sans">
+    <div className="min-h-screen bg-[#0B0A09] text-white font-sans">
       <DemoToolbar
         currentDemoId="photographer"
         onBackToStudio={onBackToStudio}
@@ -86,7 +86,7 @@ export const PhotographerDemo: React.FC<PhotographerDemoProps> = ({
       />
 
       {/* Minimalist Gallery Header */}
-      <header className="border-b border-white/10 px-4 sm:px-8 py-6 bg-[#09090D]">
+      <header className="border-b border-white/10 px-4 sm:px-8 py-6 bg-[#0B0A09]">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <Aperture className="w-6 h-6 text-vizora-blue-light" />
@@ -125,11 +125,11 @@ export const PhotographerDemo: React.FC<PhotographerDemoProps> = ({
             alt="Full-width fashion and architectural photography hero composition"
             className="w-full h-[460px] sm:h-[580px] object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#09090D] via-[#09090D]/35 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0B0A09] via-[#0B0A09]/35 to-transparent" />
 
           <div className="absolute bottom-6 left-6 right-6 sm:bottom-10 sm:left-10 sm:right-10 flex flex-col lg:flex-row lg:items-end justify-between gap-6">
             <div className="max-w-2xl">
-              <span className="inline-block px-3 py-1 rounded-full bg-vizora-blue/80 text-white text-[10px] font-mono uppercase tracking-[0.22em] mb-3">
+              <span className="inline-block px-3 py-1 rounded-full bg-vizora-black/80 border border-vizora-yellow/40 text-vizora-yellow text-[10px] font-mono uppercase tracking-[0.22em] mb-3">
                 Fashion · Portraiture · Architectural Commissions
               </span>
               <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.06]">
@@ -140,7 +140,7 @@ export const PhotographerDemo: React.FC<PhotographerDemoProps> = ({
             <div className="flex flex-wrap gap-3">
               <a
                 href="#photo-booking"
-                className="px-6 py-3.5 rounded-full bg-vizora-blue hover:bg-vizora-blue-light text-white text-xs font-bold uppercase tracking-widest transition-colors"
+                className="px-6 py-3.5 rounded-full bg-vizora-blue hover:bg-vizora-blue-light text-vizora-black text-xs font-bold uppercase tracking-widest transition-colors"
               >
                 Request Production Brief
               </a>
@@ -191,7 +191,7 @@ export const PhotographerDemo: React.FC<PhotographerDemoProps> = ({
                 onClick={() => setSelectedCategory(tab.id)}
                 className={`px-4 py-2 rounded-full text-xs font-mono uppercase tracking-wider transition-colors ${
                   selectedCategory === tab.id
-                    ? 'bg-vizora-blue text-white'
+                    ? 'bg-vizora-blue text-vizora-black font-bold'
                     : 'bg-white/[0.05] text-slate-300 hover:bg-white/10'
                 }`}
               >
@@ -207,7 +207,7 @@ export const PhotographerDemo: React.FC<PhotographerDemoProps> = ({
             return (
               <article
                 key={proj.id}
-                className="rounded-3xl bg-[#11111A] border border-white/10 overflow-hidden"
+                className="rounded-3xl bg-[#13110F] border border-white/10 overflow-hidden"
               >
                 <div className="grid grid-cols-1 lg:grid-cols-12">
                   <div className="lg:col-span-7 relative min-h-[320px] sm:min-h-[420px] bg-black">
@@ -284,7 +284,7 @@ export const PhotographerDemo: React.FC<PhotographerDemoProps> = ({
       <section id="photo-specs" className="max-w-7xl mx-auto px-4 sm:px-8 py-16">
         <div
           id="photo-booking"
-          className="p-8 sm:p-12 rounded-3xl bg-[#12121D] border border-vizora-blue/40 grid grid-cols-1 lg:grid-cols-12 gap-10"
+          className="p-8 sm:p-12 rounded-3xl bg-[#141210] border border-vizora-blue/40 grid grid-cols-1 lg:grid-cols-12 gap-10"
         >
           <div className="lg:col-span-5">
             <span className="text-[10px] font-mono uppercase tracking-[0.22em] text-vizora-yellow block mb-2">

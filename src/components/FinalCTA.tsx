@@ -27,7 +27,7 @@ export const FinalCTA: React.FC<FinalCTAProps> = ({
       />
 
       <div className="max-w-5xl mx-auto relative z-10">
-        <div className="rounded-3xl p-8 sm:p-14 lg:p-16 bg-gradient-to-br from-vizora-black-elevated via-[#111122] to-vizora-black-elevated border border-white/15 shadow-editorial-dark text-center relative overflow-hidden">
+        <div className="rounded-3xl p-8 sm:p-14 lg:p-16 bg-gradient-to-br from-vizora-black-elevated via-[#171411] to-vizora-black-elevated border border-vizora-yellow/30 shadow-editorial-dark text-center relative overflow-hidden">
           {/* Top Decorative Yellow Line */}
           <div
             className="w-24 h-1 bg-vizora-yellow mx-auto rounded-full mb-8"
@@ -55,11 +55,11 @@ export const FinalCTA: React.FC<FinalCTAProps> = ({
             <button
               type="button"
               onClick={() => onStartProject()}
-              className="group inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full text-xs sm:text-sm font-bold uppercase tracking-[0.16em] text-white bg-vizora-blue hover:bg-vizora-blue-light shadow-blue-glow transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-vizora-yellow"
+              className="group inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full text-xs sm:text-sm font-bold uppercase tracking-[0.16em] text-vizora-black bg-vizora-blue hover:bg-vizora-blue-light shadow-blue-glow transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-vizora-yellow"
             >
-              <span className="w-2 h-2 rounded-full bg-vizora-yellow" aria-hidden="true" />
+              <span className="w-2 h-2 rounded-full bg-vizora-black" aria-hidden="true" />
               <span>Start Your Project</span>
-              <ArrowRight className="w-4 h-4 text-vizora-yellow transition-transform duration-200 group-hover:translate-x-1" />
+              <ArrowRight className="w-4 h-4 text-vizora-black transition-transform duration-200 group-hover:translate-x-1" />
             </button>
 
             <button

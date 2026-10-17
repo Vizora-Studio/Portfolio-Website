@@ -48,7 +48,7 @@ export const WhyWebsiteMatters: React.FC<WhyWebsiteMattersProps> = ({ onStartPro
           <div className="lg:col-span-6 relative">
             <div className="relative rounded-3xl overflow-hidden bg-vizora-black text-white shadow-editorial-light border border-vizora-black/15">
               {/* Browser Header */}
-              <div className="bg-[#11111C] px-4 py-3 border-b border-white/10 flex items-center justify-between">
+              <div className="bg-[#0F0D0B] px-4 py-3 border-b border-white/10 flex items-center justify-between">
                 <div className="flex items-center gap-1.5">
                   <span className="w-2.5 h-2.5 rounded-full bg-vizora-blue" />
                   <span className="w-2.5 h-2.5 rounded-full bg-vizora-purple" />

@@ -36,7 +36,7 @@ export const Hero3DCanvas: React.FC<Hero3DCanvasProps> = ({ reducedMotion = fals
     let height = container.clientHeight || window.innerHeight;
 
     const scene = new THREE.Scene();
-    scene.fog = new THREE.FogExp2(0x08080d, 0.002);
+    scene.fog = new THREE.FogExp2(0x0b0a09, 0.002);
 
     const camera = new THREE.PerspectiveCamera(48, width / height, 0.1, 1000);
     camera.position.z = 25;
@@ -51,36 +51,36 @@ export const Hero3DCanvas: React.FC<Hero3DCanvasProps> = ({ reducedMotion = fals
     renderer.setClearColor(0x000000, 0);
     container.appendChild(renderer.domElement);
 
-    // Ring 1: Royal Blue (#174BFF) Architectural Arc
+    // Ring 1: Brushed Champagne Gold (#C5A059) Architectural Arc
     const ring1Geo = new THREE.TorusGeometry(9.2, 0.035, 16, 140);
     const ring1Mat = new THREE.MeshBasicMaterial({
-      color: 0x174bff,
+      color: 0xc5a059,
       transparent: true,
-      opacity: 0.55,
+      opacity: 0.58,
     });
     const ring1 = new THREE.Mesh(ring1Geo, ring1Mat);
     ring1.rotation.x = Math.PI / 3.1;
     ring1.rotation.y = Math.PI / 7;
     scene.add(ring1);
 
-    // Ring 2: Purple (#7027E8) Dimensional Orbit
+    // Ring 2: Warm Rose-Bronze (#B88E72) Dimensional Orbit
     const ring2Geo = new THREE.TorusGeometry(12.0, 0.025, 16, 150);
     const ring2Mat = new THREE.MeshBasicMaterial({
-      color: 0x7027e8,
+      color: 0xb88e72,
       transparent: true,
-      opacity: 0.42,
+      opacity: 0.45,
     });
     const ring2 = new THREE.Mesh(ring2Geo, ring2Mat);
     ring2.rotation.x = -Math.PI / 3.8;
     ring2.rotation.y = Math.PI / 5;
     scene.add(ring2);
 
-    // Ring 3: Fine Yellow (#FFD629) Accent Trajectory
+    // Ring 3: Silk Champagne Pearl (#E6CFA3) Accent Trajectory
     const ring3Geo = new THREE.TorusGeometry(14.2, 0.018, 16, 160);
     const ring3Mat = new THREE.MeshBasicMaterial({
-      color: 0xffd629,
+      color: 0xe6cfa3,
       transparent: true,
-      opacity: 0.28,
+      opacity: 0.32,
     });
     const ring3 = new THREE.Mesh(ring3Geo, ring3Mat);
     ring3.rotation.x = Math.PI / 2.3;
@@ -89,11 +89,11 @@ export const Hero3DCanvas: React.FC<Hero3DCanvasProps> = ({ reducedMotion = fals
 
     // Traveling Light Nodes
     const nodeGeo = new THREE.SphereGeometry(0.14, 16, 16);
-    const nodeMatYellow = new THREE.MeshBasicMaterial({ color: 0xffd629 });
+    const nodeMatYellow = new THREE.MeshBasicMaterial({ color: 0xe6cfa3 });
     const orbitNode1 = new THREE.Mesh(nodeGeo, nodeMatYellow);
     scene.add(orbitNode1);
 
-    const nodeMatBlue = new THREE.MeshBasicMaterial({ color: 0x174bff });
+    const nodeMatBlue = new THREE.MeshBasicMaterial({ color: 0xc5a059 });
     const orbitNode2 = new THREE.Mesh(nodeGeo, nodeMatBlue);
     scene.add(orbitNode2);
 
@@ -104,10 +104,10 @@ export const Hero3DCanvas: React.FC<Hero3DCanvasProps> = ({ reducedMotion = fals
     const colors = new Float32Array(particleCount * 3);
 
     const colorPalette = [
-      new THREE.Color(0x174bff), // Royal Blue
-      new THREE.Color(0x7027e8), // Purple
-      new THREE.Color(0xffd629), // Yellow accent
-      new THREE.Color(0xffffff), // Crisp White
+      new THREE.Color(0xc5a059), // Brushed Champagne Gold
+      new THREE.Color(0xb88e72), // Warm Rose-Bronze
+      new THREE.Color(0xe6cfa3), // Silk Champagne Pearl
+      new THREE.Color(0xf6f2ea), // Warm Alabaster Ivory
     ];
 
     for (let i = 0; i < particleCount; i++) {
@@ -119,7 +119,7 @@ export const Hero3DCanvas: React.FC<Hero3DCanvasProps> = ({ reducedMotion = fals
       positions[i * 3 + 1] = radius * Math.sin(phi);
       positions[i * 3 + 2] = radius * Math.cos(phi) * Math.cos(theta) - 3;
 
-      // Weight toward Royal Blue & Purple, selective Yellow
+      // Weight toward Champagne Gold & Rose-Bronze, selective Silk Pearl
       const pick = Math.random();
       const c =
         pick < 0.45

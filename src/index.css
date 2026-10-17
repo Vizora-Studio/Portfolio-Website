@@ -4,21 +4,21 @@
 
 @layer base {
   :root {
-    --vizora-blue: #174BFF;
-    --vizora-black: #08080D;
-    --vizora-yellow: #FFD629;
-    --vizora-purple: #7027E8;
-    --vizora-paper: #F7F6F2;
+    --vizora-blue: #C5A059;
+    --vizora-black: #0B0A09;
+    --vizora-yellow: #E6CFA3;
+    --vizora-purple: #8C6249;
+    --vizora-paper: #F6F2EA;
   }
 
   html {
     scroll-behavior: smooth;
-    background-color: #08080D;
+    background-color: #0B0A09;
   }
 
   body {
-    background-color: #08080D;
-    color: #FFFFFF;
+    background-color: #0B0A09;
+    color: #F7F4EE;
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
     overflow-x: hidden;
   }
@@ -27,81 +27,97 @@
     scroll-margin-top: 5rem;
   }
 
-  /* Custom Studio Scrollbar */
+  /* Custom Atelier Scrollbar */
   ::-webkit-scrollbar {
     width: 8px;
   }
   ::-webkit-scrollbar-track {
-    background: #08080D;
+    background: #0B0A09;
   }
   ::-webkit-scrollbar-thumb {
-    background: rgba(23, 75, 255, 0.45);
+    background: rgba(197, 160, 89, 0.45);
     border-radius: 4px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #174BFF;
+    background: #C5A059;
   }
 }
 
 @layer utilities {
   .text-blue-purple-gradient {
-    background: linear-gradient(135deg, #6C91FF 0%, #174BFF 42%, #9359F2 82%, #FFD629 100%);
+    background: linear-gradient(135deg, #D8B56A 0%, #C5A059 42%, #A67B44 76%, #8C6249 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
   .text-royal-gold-gradient {
-    background: linear-gradient(135deg, #FFFFFF 0%, #FFE36E 48%, #FFD629 100%);
+    background: linear-gradient(135deg, #FCFBF8 0%, #E6CFA3 48%, #C5A059 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
   .bg-blue-purple-gradient {
-    background: linear-gradient(135deg, #174BFF 0%, #7027E8 100%);
+    background: linear-gradient(135deg, #C5A059 0%, #9E7B3B 100%);
   }
 
   .bg-luxury-obsidian {
     background:
-      radial-gradient(circle at 14% 12%, rgba(23, 75, 255, 0.16), transparent 38%),
-      radial-gradient(circle at 86% 22%, rgba(112, 39, 232, 0.16), transparent 40%),
-      radial-gradient(circle at 50% 92%, rgba(255, 214, 41, 0.05), transparent 35%),
-      #08080D;
+      radial-gradient(circle at 16% 12%, rgba(197, 160, 89, 0.13), transparent 40%),
+      radial-gradient(circle at 84% 24%, rgba(140, 98, 73, 0.14), transparent 42%),
+      radial-gradient(circle at 50% 90%, rgba(230, 207, 163, 0.06), transparent 38%),
+      #0B0A09;
   }
 
   .luxury-double-border {
     box-shadow:
-      0 30px 70px -15px rgba(0, 0, 0, 0.85),
-      0 0 0 1px rgba(255, 255, 255, 0.10),
-      inset 0 1px 0 0 rgba(255, 255, 255, 0.14);
+      0 30px 70px -15px rgba(0, 0, 0, 0.88),
+      0 0 0 1px rgba(230, 207, 163, 0.16),
+      inset 0 1px 0 0 rgba(243, 229, 200, 0.18);
   }
 
   .luxury-royal-frame {
     background: linear-gradient(
       145deg,
-      rgba(23, 75, 255, 0.18) 0%,
-      rgba(15, 15, 24, 0.96) 38%,
-      rgba(15, 15, 24, 0.98) 65%,
-      rgba(112, 39, 232, 0.18) 100%
+      rgba(197, 160, 89, 0.14) 0%,
+      rgba(19, 17, 15, 0.96) 38%,
+      rgba(19, 17, 15, 0.98) 65%,
+      rgba(140, 98, 73, 0.15) 100%
     );
     box-shadow:
-      0 30px 80px -16px rgba(8, 8, 13, 0.9),
-      0 0 40px -12px rgba(23, 75, 255, 0.28),
-      inset 0 1px 0 0 rgba(255, 214, 41, 0.22);
+      0 30px 80px -16px rgba(11, 10, 9, 0.92),
+      0 0 40px -12px rgba(197, 160, 89, 0.22),
+      inset 0 1px 0 0 rgba(230, 207, 163, 0.25);
   }
 
   .editorial-grid-lines {
-    background-size: 64px 64px;
+    background-size: 72px 72px;
     background-image: 
-      linear-gradient(to right, rgba(255, 255, 255, 0.028) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.028) 1px, transparent 1px);
+      linear-gradient(to right, rgba(230, 207, 163, 0.032) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(230, 207, 163, 0.032) 1px, transparent 1px);
   }
 
   .editorial-grid-lines-light {
-    background-size: 64px 64px;
+    background-size: 72px 72px;
     background-image: 
-      linear-gradient(to right, rgba(8, 8, 13, 0.038) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(8, 8, 13, 0.038) 1px, transparent 1px);
+      linear-gradient(to right, rgba(18, 16, 14, 0.035) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(18, 16, 14, 0.035) 1px, transparent 1px);
   }
+}
+
+/* Ensure Brushed Gold Primary Buttons Have Crisp Obsidian Contrast */
+button.bg-vizora-blue,
+a.bg-vizora-blue {
+  background: linear-gradient(135deg, #DFC184 0%, #C5A059 55%, #A9843E 100%);
+  color: #0B0A09 !important;
+}
+button.bg-vizora-blue:hover,
+a.bg-vizora-blue:hover {
+  background: linear-gradient(135deg, #EAD19C 0%, #D1AD66 55%, #B8924A 100%);
+  color: #0B0A09 !important;
+}
+button.bg-vizora-blue svg,
+a.bg-vizora-blue svg {
+  color: #0B0A09 !important;
 }
 
 /* Reduced motion accessibility */

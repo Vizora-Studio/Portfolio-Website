@@ -28,7 +28,7 @@ export const Footer: React.FC<FooterProps> = ({
   ];
 
   return (
-    <footer className="relative bg-[#050509] text-white border-t border-white/10 pt-20 pb-12 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <footer className="relative bg-[#080706] text-white border-t border-white/10 pt-20 pb-12 px-4 sm:px-6 lg:px-8 overflow-hidden">
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-16 border-b border-white/10">
           {/* Column 1: Actual Vizora Logo & Brand Description (4 cols) */}
@@ -42,7 +42,7 @@ export const Footer: React.FC<FooterProps> = ({
                 }}
                 className="inline-flex items-center gap-3.5 mb-5 group"
               >
-                <div className="h-14 px-3 py-1.5 rounded-xl bg-[#FAF9F5] border border-white/20 flex items-center justify-center">
+                <div className="h-14 px-3 py-1.5 rounded-xl bg-[#FAF9F5] border border-vizora-yellow/40 flex items-center justify-center">
                   <img
                     src="/assets/vizora-logo-original.jpeg"
                     alt="Vizora Official Logo"
@@ -77,11 +77,11 @@ export const Footer: React.FC<FooterProps> = ({
               <button
                 type="button"
                 onClick={() => onStartProject()}
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-[0.15em] text-white bg-vizora-blue hover:bg-vizora-blue-light shadow-blue-glow transition-all"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-[0.15em] text-vizora-black bg-vizora-blue hover:bg-vizora-blue-light shadow-blue-glow transition-all"
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-vizora-yellow" />
+                <span className="w-1.5 h-1.5 rounded-full bg-vizora-black" />
                 <span>Start Your Project</span>
-                <ArrowUpRight className="w-3.5 h-3.5 text-vizora-yellow" />
+                <ArrowUpRight className="w-3.5 h-3.5 text-vizora-black" />
               </button>
             </div>
           </div>

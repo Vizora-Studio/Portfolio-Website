@@ -77,7 +77,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           className="group flex items-center gap-3.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-vizora-yellow rounded-xl p-1"
           aria-label="Vizora Web Design Studio — Home"
         >
-          <div className="relative h-11 sm:h-12 px-2.5 py-1 rounded-lg bg-[#FAF9F5] border border-white/20 shadow-[0_0_25px_-5px_rgba(23,75,255,0.45)] flex items-center justify-center overflow-hidden transition-transform duration-300 group-hover:scale-[1.02]">
+          <div className="relative h-11 sm:h-12 px-2.5 py-1 rounded-lg bg-[#FAF9F5] border border-vizora-yellow/40 shadow-[0_0_25px_-5px_rgba(197,160,89,0.4)] flex items-center justify-center overflow-hidden transition-transform duration-300 group-hover:scale-[1.02]">
             <img
               src="/assets/vizora-logo-original.jpeg"
               alt="Vizora Official Logo"
@@ -111,7 +111,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 onClick={(e) => handleNavClick(e, link.id)}
                 className={`text-xs uppercase tracking-[0.14em] font-medium px-4 py-2 rounded-full transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-vizora-yellow ${
                   isActive
-                    ? 'bg-vizora-blue text-white shadow-blue-glow'
+                    ? 'bg-vizora-blue text-vizora-black font-bold shadow-blue-glow'
                     : 'text-slate-200 hover:text-white hover:bg-white/[0.07]'
                 }`}
               >
@@ -126,11 +126,11 @@ export const Navbar: React.FC<NavbarProps> = ({
           <button
             type="button"
             onClick={() => onStartProject()}
-            className="group relative inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-[0.14em] text-white bg-vizora-blue hover:bg-vizora-blue-light shadow-blue-glow transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-vizora-yellow"
+            className="group relative inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-[0.14em] text-vizora-black bg-vizora-blue hover:bg-vizora-blue-light shadow-blue-glow transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-vizora-yellow"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-vizora-yellow" aria-hidden="true" />
+            <span className="w-1.5 h-1.5 rounded-full bg-vizora-black" aria-hidden="true" />
             <span>Start Your Project</span>
-            <ArrowUpRight className="w-3.5 h-3.5 text-vizora-yellow transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            <ArrowUpRight className="w-3.5 h-3.5 text-vizora-black transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </button>
         </div>
 
