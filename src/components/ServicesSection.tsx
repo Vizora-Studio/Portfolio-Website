@@ -15,17 +15,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
   return (
     <section
       id="services"
-      className="relative py-24 sm:py-32 px-4 sm:px-8 lg:px-12 bg-[#F5EBDD] text-[#211C19] border-t border-[#C99A52]/25 overflow-hidden"
+      className="relative py-24 sm:py-32 px-4 sm:px-8 lg:px-12 text-[#211C19] overflow-hidden"
     >
-      {/* Subtle Sunlit Ambient Lighting */}
-      <div
-        className="absolute top-1/3 -left-32 w-[520px] h-[520px] bg-[#FFF9F0]/80 rounded-full blur-[140px] pointer-events-none"
-        aria-hidden="true"
-      />
-      <div
-        className="absolute bottom-16 -right-32 w-[500px] h-[500px] bg-[#E7D2B8]/50 rounded-full blur-[140px] pointer-events-none"
-        aria-hidden="true"
-      />
 
       <div className="max-w-[1380px] mx-auto relative z-10">
         {/* Section Header */}
@@ -80,7 +71,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
             return (
               <article
                 key={service.id}
-                className="group relative rounded-[32px] bg-[#FFF9F0] border border-[#C99A52]/35 shadow-champagne-card hover:shadow-champagne-elevated transition-all duration-500 overflow-hidden"
+                className={`group relative rounded-[32px] ${'luxury-glass-card'} luxury-double-frame border border-[#C99A52]/35 shadow-champagne-card hover:shadow-champagne-elevated transition-all duration-500 overflow-hidden`}
               >
                 <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
                   {/* Visual Showcase Column (5 cols) */}

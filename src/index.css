@@ -90,15 +90,37 @@
   }
 
   .luxury-card-surface {
-    background: linear-gradient(165deg, #FFFDF9 0%, #FFF9F0 58%, #FAF0E2 100%);
+    background: linear-gradient(155deg, rgba(255, 253, 249, 0.86) 0%, rgba(255, 249, 240, 0.78) 55%, rgba(246, 234, 216, 0.84) 100%);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     box-shadow:
-      0 24px 64px -16px rgba(73, 56, 43, 0.11),
-      0 4px 16px -4px rgba(73, 56, 43, 0.05),
-      inset 0 1px 0 0 rgba(255, 255, 255, 0.92);
+      0 26px 68px -16px rgba(58, 43, 31, 0.16),
+      0 6px 20px -4px rgba(58, 43, 31, 0.06),
+      inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.92);
+  }
+
+  .luxury-glass-card {
+    background: linear-gradient(155deg, rgba(255, 253, 249, 0.86) 0%, rgba(255, 249, 240, 0.78) 55%, rgba(246, 234, 216, 0.84) 100%);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow:
+      0 26px 68px -16px rgba(58, 43, 31, 0.16),
+      0 6px 20px -4px rgba(58, 43, 31, 0.06),
+      inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.92);
+  }
+
+  .luxury-glass-card-blush {
+    background: linear-gradient(155deg, rgba(255, 252, 249, 0.88) 0%, rgba(246, 230, 224, 0.82) 55%, rgba(238, 213, 204, 0.86) 100%);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow:
+      0 26px 68px -16px rgba(82, 52, 43, 0.16),
+      0 6px 20px -4px rgba(58, 43, 31, 0.06),
+      inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.92);
   }
 
   .luxury-double-frame {
-    outline: 1px solid rgba(201, 154, 82, 0.22);
+    outline: 1px solid rgba(201, 154, 82, 0.26);
     outline-offset: -8px;
   }
 
@@ -142,7 +164,9 @@
     border-top-left-radius: 9999px;
     border-top-right-radius: 9999px;
   }
+
 }
+
 
 /* Reduced motion accessibility */
 @media (prefers-reduced-motion: reduce) {

@@ -14,7 +14,7 @@ export const FinalCTA: React.FC<FinalCTAProps> = ({
   return (
     <section
       id="final-cta"
-      className="relative py-24 sm:py-32 px-4 sm:px-8 lg:px-12 bg-[#F5EBDD] text-[#211C19] border-t border-[#C99A52]/30 overflow-hidden"
+      className="relative py-24 sm:py-32 px-4 sm:px-8 lg:px-12 text-[#211C19] overflow-hidden"
     >
       <div className="max-w-[1380px] mx-auto relative z-10">
         <div className="relative rounded-[36px] overflow-hidden border border-[#C99A52]/45 shadow-champagne-elevated bg-[#FFF9F0]">

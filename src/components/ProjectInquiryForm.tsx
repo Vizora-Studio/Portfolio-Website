@@ -165,7 +165,7 @@ export const ProjectInquiryForm: React.FC<ProjectInquiryFormProps> = ({
   return (
     <section
       id="inquiry"
-      className="relative py-24 sm:py-32 px-4 sm:px-8 lg:px-12 bg-[#F5EBDD] text-[#211C19] border-t border-[#C99A52]/25 overflow-hidden"
+      className="relative py-24 sm:py-32 px-4 sm:px-8 lg:px-12 text-[#211C19] overflow-hidden"
     >
       <div className="max-w-5xl mx-auto relative z-10">
         {/* Section Header */}

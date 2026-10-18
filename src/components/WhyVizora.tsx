@@ -5,13 +5,8 @@ export const WhyVizora: React.FC = () => {
   return (
     <section
       id="why-vizora"
-      className="relative py-24 sm:py-32 px-4 sm:px-8 lg:px-12 bg-[#F5EBDD] text-[#211C19] border-t border-[#C99A52]/25 overflow-hidden"
+      className="relative py-24 sm:py-32 px-4 sm:px-8 lg:px-12 text-[#211C19] overflow-hidden"
     >
-      {/* Warm Sunlit Architectural Glow */}
-      <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[680px] h-[680px] bg-[#FFF9F0]/75 rounded-full blur-[150px] pointer-events-none"
-        aria-hidden="true"
-      />
 
       <div className="max-w-[1380px] mx-auto relative z-10">
         {/* Section Header */}

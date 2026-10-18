@@ -10,7 +10,7 @@ export const AboutVizora: React.FC<AboutVizoraProps> = ({ onStartProject }) => {
   return (
     <section
       id="about"
-      className="relative py-24 sm:py-32 px-4 sm:px-8 lg:px-12 bg-[#F5EBDD] text-[#211C19] border-t border-[#C99A52]/25 overflow-hidden"
+      className="relative py-24 sm:py-32 px-4 sm:px-8 lg:px-12 text-[#211C19] overflow-hidden"
     >
       <div className="max-w-[1380px] mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">

@@ -45,7 +45,7 @@ export const Footer: React.FC<FooterProps> = ({
   ];
 
   return (
-    <footer className="relative bg-[#211C19] text-[#F5EBDD] border-t border-[#C99A52]/30 pt-20 pb-12 px-4 sm:px-8 lg:px-12 overflow-hidden">
+    <footer className="relative z-10 bg-[#211C19] text-[#F5EBDD] border-t border-[#C99A52]/30 pt-20 pb-12 px-4 sm:px-8 lg:px-12 overflow-hidden">
       {/* Subtle Warm Gold Ambient Glow */}
       <div
         className="absolute top-0 left-1/3 w-[500px] h-[250px] bg-[#C99A52]/10 rounded-full blur-[140px] pointer-events-none"

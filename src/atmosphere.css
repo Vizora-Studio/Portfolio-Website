@@ -1,0 +1,93 @@
+/* Site-wide atmospheric background — see AtmosphericBackground.tsx.
+   Decorative, fixed, behind all content (z-index 0; main/footer sit at z-10,
+   the navbar above that). Hero-sibling scenery photographs cross-fade and pan
+   slowly with scroll; soft pastel lights sit on top. Only opacity/transform
+   are animated, written by a single rAF loop. No blur filters. */
+
+.atmosphere {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  contain: strict;
+}
+
+/* Ivory foundation, visible only until the images load */
+.atmosphere__base {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, #F7EFE3 0%, #F5EBDD 45%, #F2E4D0 100%);
+}
+
+/* Architectural scenery (arches, curtains, sunlight, travertine) */
+.atmosphere__scene {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+  will-change: opacity, transform;
+}
+.atmosphere__scene--arch { object-position: 68% 50%; }
+.atmosphere__scene--gallery { object-position: 55% 50%; }
+.atmosphere__scene--salon { object-position: 62% 50%; }
+
+/* Ivory veil: scenery stays recognisable, foreground text stays readable */
+.atmosphere__veil {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(247, 239, 227, 0.34) 0%, rgba(245, 235, 221, 0.46) 55%, rgba(245, 235, 221, 0.4) 100%);
+}
+
+/* Pastel lights: broad multi-stop radial gradients, no visible edge, no blur filter */
+.atmosphere__light {
+  position: absolute;
+  width: clamp(560px, 85vw, 1200px);
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  opacity: 0;
+  will-change: opacity, transform;
+}
+
+.atmosphere__light--blue {
+  top: 4%;
+  left: -22%;
+  background: radial-gradient(closest-side, rgba(220, 232, 255, 0.95) 0%, rgba(220, 232, 255, 0.55) 35%, rgba(220, 232, 255, 0.18) 68%, rgba(220, 232, 255, 0) 100%);
+}
+.atmosphere__light--blush {
+  top: 22%;
+  right: -26%;
+  background: radial-gradient(closest-side, rgba(244, 221, 229, 0.95) 0%, rgba(244, 221, 229, 0.55) 35%, rgba(244, 221, 229, 0.18) 68%, rgba(244, 221, 229, 0) 100%);
+}
+.atmosphere__light--lavender {
+  top: 40%;
+  left: -18%;
+  background: radial-gradient(closest-side, rgba(232, 224, 245, 0.95) 0%, rgba(232, 224, 245, 0.55) 35%, rgba(232, 224, 245, 0.18) 68%, rgba(232, 224, 245, 0) 100%);
+}
+.atmosphere__light--sage {
+  top: -6%;
+  right: -22%;
+  background: radial-gradient(closest-side, rgba(221, 232, 216, 0.95) 0%, rgba(221, 232, 216, 0.55) 35%, rgba(221, 232, 216, 0.18) 68%, rgba(221, 232, 216, 0) 100%);
+}
+.atmosphere__light--champagne {
+  bottom: -28%;
+  left: 50%;
+  margin-left: calc(clamp(560px, 85vw, 1200px) / -2);
+  background: radial-gradient(closest-side, rgba(234, 209, 160, 0.95) 0%, rgba(234, 209, 160, 0.55) 35%, rgba(234, 209, 160, 0.18) 68%, rgba(234, 209, 160, 0) 100%);
+}
+
+/* Warm vignette keeps edges grounded */
+.atmosphere__vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 45%, transparent 58%, rgba(140, 105, 60, 0.07) 100%);
+}
+
+@media (max-width: 767px) {
+  /* Lighter on phones: smaller lights */
+  .atmosphere__light { width: 640px; }
+  .atmosphere__light--champagne { margin-left: -320px; }
+}

@@ -15,17 +15,8 @@ export const WhoWeBuildFor: React.FC<WhoWeBuildForProps> = ({
   return (
     <section
       id="who-we-help"
-      className="relative py-24 sm:py-32 px-4 sm:px-8 lg:px-12 bg-[#FFF9F0] text-[#211C19] border-t border-[#C99A52]/25 overflow-hidden"
+      className="relative py-24 sm:py-32 px-4 sm:px-8 lg:px-12 text-[#211C19] overflow-hidden"
     >
-      {/* Subtle Blush & Champagne Ambient Lighting */}
-      <div
-        className="absolute top-24 right-0 w-[500px] h-[500px] bg-[#F3E3DD]/60 rounded-full blur-[140px] pointer-events-none"
-        aria-hidden="true"
-      />
-      <div
-        className="absolute bottom-24 left-0 w-[500px] h-[500px] bg-[#E7D2B8]/45 rounded-full blur-[140px] pointer-events-none"
-        aria-hidden="true"
-      />
 
       <div className="max-w-[1380px] mx-auto relative z-10">
         {/* Section Header */}
@@ -76,11 +67,7 @@ export const WhoWeBuildFor: React.FC<WhoWeBuildForProps> = ({
             return (
               <article
                 key={category.id}
-                className={`group rounded-[28px] overflow-hidden border transition-all duration-500 flex flex-col justify-between shadow-champagne-card hover:shadow-champagne-elevated ${
-                  isBlushCard
-                    ? 'bg-blush-editorial border-[#C48B7E]/35'
-                    : 'bg-[#F5EBDD]/85 border-[#C99A52]/35'
-                }`}
+                className={`group rounded-[28px] overflow-hidden border transition-all duration-500 flex flex-col justify-between shadow-champagne-card hover:shadow-champagne-elevated ${isBlushCard ? 'luxury-glass-card-blush' : 'luxury-glass-card'} luxury-double-frame`}
               >
                 {/* Top Editorial Image Frame */}
                 <div>

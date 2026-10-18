@@ -12,6 +12,7 @@ import { FAQSection } from './components/FAQSection';
 import { ProjectInquiryForm } from './components/ProjectInquiryForm';
 import { FinalCTA } from './components/FinalCTA';
 import { Footer } from './components/Footer';
+import { AtmosphericBackground } from './components/AtmosphericBackground';
 import { ModelPortfolioDemo } from './demos/ModelPortfolioDemo';
 import { MakeupArtistDemo } from './demos/MakeupArtistDemo';
 import { PhotographerDemo } from './demos/PhotographerDemo';
@@ -183,7 +184,8 @@ export const App: React.FC = () => {
   }
 
   return (
-    <div className="relative min-h-screen bg-[#F5EBDD] text-[#211C19] flex flex-col font-sans selection:bg-[#C99A52]/30 selection:text-[#211C19]">
+    <div className="relative min-h-screen text-[#211C19] flex flex-col font-sans selection:bg-[#C99A52]/30 selection:text-[#211C19]">
+      <AtmosphericBackground />
       <Navbar
         onNavigateSection={handleNavigateSection}
         onStartProject={handleStartProject}
@@ -191,7 +193,7 @@ export const App: React.FC = () => {
         activePage={activePage}
       />
 
-      <main className="flex-1">
+      <main className="flex-1 relative z-10">
         {activePage !== 'home' ? (
           <div className="pt-28">
             <div className="max-w-[1380px] mx-auto px-4 sm:px-8 lg:px-12 pb-4">

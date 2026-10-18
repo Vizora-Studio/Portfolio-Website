@@ -30,10 +30,16 @@ export const Hero: React.FC<HeroProps> = ({
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col justify-between pt-24 sm:pt-28 pb-8 sm:pb-12 overflow-hidden bg-[#F5EBDD]"
+      className="relative min-h-screen flex flex-col justify-between pt-24 sm:pt-28 pb-8 sm:pb-12 overflow-hidden"
     >
       {/* Sunlit Architectural Studio Backdrop (Photorealistic Reference Scene) */}
-      <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
+      <div
+        className="absolute inset-0 pointer-events-none select-none overflow-hidden"
+        style={{
+          WebkitMaskImage: 'linear-gradient(to bottom, #000 0%, #000 88%, transparent 100%)',
+          maskImage: 'linear-gradient(to bottom, #000 0%, #000 88%, transparent 100%)',
+        }}
+      >
         <img
           src="/images/champagne-luxury-hero-scene.jpg"
           alt=""
